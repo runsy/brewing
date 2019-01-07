@@ -1,0 +1,443 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-11 23:40+0100\n"
+"PO-Revision-Date: 2018-11-05 23:04+0100\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: nodes.lua
+msgid "Magic Ore"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Crystal"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Crystal Piece"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Block"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Wand"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Apple"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Cross"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Heart"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Dust"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Blue Tear Crystal"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Blue Tear Gem"
+msgstr ""
+
+#: nodes.lua
+msgid "Magic Blue Star"
+msgstr ""
+
+#: nodes.lua
+msgid "Cork"
+msgstr ""
+
+#: tools.lua
+msgid "Magic Pickaxe"
+msgstr ""
+
+#: tools.lua
+msgid "Magic Axe"
+msgstr ""
+
+#: tools.lua
+msgid "Magic Shovel"
+msgstr ""
+
+#: tools.lua
+msgid "Magic Hoe"
+msgstr ""
+
+#: tools.lua
+msgid "Magic Sword"
+msgstr ""
+
+#: tools.lua
+msgid "Little Razor"
+msgstr ""
+
+#: potion.lua
+msgid "Potion (type:"
+msgstr ""
+
+#: potion.lua
+msgid "Potion ("
+msgstr ""
+
+#: potion.lua
+msgid ") (flowing)"
+msgstr ""
+
+#: potion.lua
+msgid "Speed"
+msgstr ""
+
+#: potion.lua
+msgid "Anti-Gravity"
+msgstr ""
+
+#: potion.lua
+msgid "Jumping"
+msgstr ""
+
+#: potion.lua
+msgid "One Use Health"
+msgstr ""
+
+#: potion.lua
+msgid "Health"
+msgstr ""
+
+#: potion.lua
+msgid "One Use Air"
+msgstr ""
+
+#: potion.lua
+msgid "Air"
+msgstr ""
+
+#: cauldron.lua
+msgid "Magic Cauldron"
+msgstr ""
+
+#: armor.lua
+msgid "Magic Helmet"
+msgstr ""
+
+#: armor.lua
+msgid "Magic Chestplate"
+msgstr ""
+
+#: armor.lua
+msgid "Magic Leggins"
+msgstr ""
+
+#: armor.lua
+msgid "Magic Boots"
+msgstr ""
+
+#: armor.lua
+msgid "Magic Heart Amulet"
+msgstr ""
+
+#: armor.lua
+msgid "Your max health is increased by"
+msgstr ""
+
+#: armor.lua
+msgid "Your max health is decreased by"
+msgstr ""
+
+#: armor.lua
+msgid "Magic Health Amulet"
+msgstr ""
+
+#: armor.lua
+msgid "Magic Cross Amulet"
+msgstr ""
+
+#: armor.lua
+msgid "Magic Blue Star Amulet"
+msgstr ""
+
+#: farming.lua
+msgid "Magic_rose"
+msgstr ""
+
+#: farming.lua
+msgid "Magic Rose Seed"
+msgstr ""
+
+#: farming.lua
+msgid "Magic Rose Petals"
+msgstr ""
+
+#: farming.lua
+msgid "Magic Rosewater"
+msgstr ""
+
+#: farming.lua
+msgid "Magic Rose on a vase"
+msgstr ""
+
+#: farming.lua
+msgid "Magic Blue Rose"
+msgstr ""
+
+#: farming.lua
+msgid "Magic Blue Rose Petals"
+msgstr ""
+
+#: farming.lua
+msgid "Magic Blue Dust"
+msgstr ""
+
+#: farming.lua
+msgid "Sugar"
+msgstr ""
+
+#: farming.lua
+msgid "Sugarcane"
+msgstr ""
+
+#: farming.lua
+msgid "Sugarcane Sprout"
+msgstr ""
+
+#: lemmontree.lua
+msgid "Lemmon"
+msgstr ""
+
+#: lemmontree.lua
+msgid "Lemmon Tree Sapling"
+msgstr ""
+
+#: lemmontree.lua
+msgid "Lemmon Tree Trunk"
+msgstr ""
+
+#: lemmontree.lua
+msgid "Lemmon Tree Wood"
+msgstr ""
+
+#: lemmontree.lua
+msgid "Lemmon Tree Leaves"
+msgstr ""
+
+#: lemmontree.lua
+msgid "Lemonade"
+msgstr ""
+
+#: food.lua
+msgid "Magic Donut"
+msgstr ""
+
+#: food.lua
+msgid "Magic Donut Dough"
+msgstr ""
+
+#: food.lua
+msgid "Lemmon Pie"
+msgstr ""
+
+#: food.lua
+msgid "Lemmon Pie Dough"
+msgstr ""
+
+#: food.lua
+msgid "Fay Cake"
+msgstr ""
+
+#: food.lua
+msgid "Unbaked Clay Bowl"
+msgstr ""
+
+#: food.lua
+msgid "Clay Bowl"
+msgstr ""
+
+#: food.lua
+msgid "Nymph Salad"
+msgstr ""
+
+#: food.lua
+msgid "Siren Soup"
+msgstr ""
+
+#: stairs.lua
+msgid "Stair Magic Block"
+msgstr ""
+
+#: stairs.lua
+msgid "Slab Magic Block"
+msgstr ""
+
+#: stairs.lua
+msgid "Lemmon Tree Stair"
+msgstr ""
+
+#: stairs.lua
+msgid "Lemmon Tree Slab"
+msgstr ""
+
+#: stairs.lua
+msgid "Lemmon Tree Inner Stair"
+msgstr ""
+
+#: stairs.lua
+msgid "Lemmon Tree Outer Stair"
+msgstr ""
+
+#: crystal_ball.lua
+msgid "Magic Crystal Ball"
+msgstr ""
+
+#: crystal_ball.lua
+msgid "Lily has returned to her Magic Crystal Ball"
+msgstr ""
+
+#: crystal_ball.lua
+msgid "Lily lives here"
+msgstr ""
+
+#: lily.lua
+msgid "Magic Ring"
+msgstr ""
+
+#: lily.lua
+msgid "Lily's Wings"
+msgstr ""
+
+#: lily.lua
+msgid "Follow me"
+msgstr ""
+
+#: lily.lua
+msgid "Stand here"
+msgstr ""
+
+#: lily.lua
+msgid "Do your own thing"
+msgstr ""
+
+#: lily.lua
+msgid "Lily's Inventory"
+msgstr ""
+
+#: herbalism.lua
+msgid "Fire Flower"
+msgstr ""
+
+#: herbalism.lua
+msgid "Gerbera Daisy"
+msgstr ""
+
+#: herbalism.lua
+msgid "Yellow Bell"
+msgstr ""
+
+#: herbalism.lua
+msgid "Saffron Crocus"
+msgstr ""
+
+#: herbalism.lua
+msgid "Lucky Club"
+msgstr ""
+
+#: herbalism.lua
+msgid "Orange Mycena"
+msgstr ""
+
+#: herbalism.lua
+msgid "Cortinarius Violaceus"
+msgstr ""
+
+#: herbalism.lua
+msgid "Artic Carrot"
+msgstr ""
+
+#: herbalism.lua
+msgid "Mandragora"
+msgstr ""
+
+#: herbalism.lua
+msgid "Vial (empty)"
+msgstr ""
+
+#: herbalism.lua
+msgid "Crystal Jar (empty)"
+msgstr ""
+
+#: herbalism.lua
+msgid "Gerbera Oil"
+msgstr ""
+
+#: herbalism.lua
+msgid "Fire Essence"
+msgstr ""
+
+#: herbalism.lua
+msgid "Saffron Bag"
+msgstr ""
+
+#: herbalism.lua
+msgid "Cortinarius Poison"
+msgstr ""
+
+#: herbalism.lua
+msgid "Mint"
+msgstr ""
+
+#: herbalism.lua
+msgid "Mint Juice"
+msgstr ""
+
+#: herbalism.lua
+msgid "Mint Leaves"
+msgstr ""
+
+#: herbalism.lua
+msgid "Creosote Bush"
+msgstr ""
+
+#: aquatic.lua
+msgid "Pearl Oyster"
+msgstr ""
+
+#: aquatic.lua
+msgid "Pearl"
+msgstr ""
+
+#: aquatic.lua
+msgid "Anemon"
+msgstr ""
+
+#: aquatic.lua
+msgid "Turtle Shell"
+msgstr ""
+
+#: black_pearl_anemon.lua
+msgid "Black Pearl Anemon"
+msgstr ""
+
+#: black_pearl_anemon.lua
+msgid "Black Pearl"
+msgstr ""

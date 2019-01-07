@@ -1,0 +1,442 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-14 08:34+0200\n"
+"PO-Revision-Date: 2018-12-11 23:40+0100\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: nodes.lua
+msgid "Magic Ore"
+msgstr "Mineral mágico"
+
+#: nodes.lua
+msgid "Magic Crystal"
+msgstr "Cristal mágico"
+
+#: nodes.lua
+msgid "Magic Crystal Piece"
+msgstr "Fragmento de cristal mágico"
+
+#: nodes.lua
+msgid "Magic Block"
+msgstr "Bloque mágico"
+
+#: nodes.lua
+msgid "Magic Wand"
+msgstr "Vara mágica"
+
+#: nodes.lua
+msgid "Magic Apple"
+msgstr "Manzana mágica"
+
+#: nodes.lua
+msgid "Magic Cross"
+msgstr "Cruz mágica"
+
+#: nodes.lua
+msgid "Magic Heart"
+msgstr "Corazón mágico"
+
+#: nodes.lua
+msgid "Magic Dust"
+msgstr "Polvo mágico"
+
+#: nodes.lua
+msgid "Magic Blue Tear Crystal"
+msgstr "Cristal lágrima azul mágico"
+
+#: nodes.lua
+msgid "Magic Blue Tear Gem"
+msgstr "Gema lágrima azul mágica"
+
+#: nodes.lua
+msgid "Magic Blue Star"
+msgstr "Estrella azul mágica"
+
+#: nodes.lua
+msgid "Cork"
+msgstr "Corcho"
+
+#: tools.lua
+msgid "Magic Pickaxe"
+msgstr "Pico mágico"
+
+#: tools.lua
+msgid "Magic Axe"
+msgstr "Hacha mágica"
+
+#: tools.lua
+msgid "Magic Shovel"
+msgstr "Pala mágica"
+
+#: tools.lua
+msgid "Magic Hoe"
+msgstr "Azada mágica"
+
+#: tools.lua
+msgid "Magic Sword"
+msgstr "Espada mágica"
+
+#: tools.lua
+msgid "Little Razor"
+msgstr "Navaja pequeña"
+
+#: potion.lua
+msgid "Potion (type:"
+msgstr "poción (tipo:"
+
+#: potion.lua
+msgid "Potion ("
+msgstr "Poción ("
+
+#: potion.lua
+msgid ") (flowing)"
+msgstr ") (fluído)"
+
+#: potion.lua
+msgid "Speed"
+msgstr "Velocidad"
+
+#: potion.lua
+msgid "Anti-Gravity"
+msgstr "Anti-gravedad)"
+
+#: potion.lua
+msgid "Jumping"
+msgstr "Salto"
+
+#: potion.lua
+msgid "One Use Health"
+msgstr "Salud (un solo uso)"
+
+#: potion.lua
+msgid "Health"
+msgstr "Salud"
+
+#: potion.lua
+msgid "One Use Air"
+msgstr "Aire (un solo uso)"
+
+#: potion.lua
+msgid "Air"
+msgstr "Aire"
+
+#: cauldron.lua
+msgid "Magic Cauldron"
+msgstr "Caldero mágico"
+
+#: armor.lua
+msgid "Magic Helmet"
+msgstr "Casco mágico"
+
+#: armor.lua
+msgid "Magic Chestplate"
+msgstr "Peto mágico"
+
+#: armor.lua
+msgid "Magic Leggins"
+msgstr "Polainas mágicas"
+
+#: armor.lua
+msgid "Magic Boots"
+msgstr "Botas mágicas"
+
+#: armor.lua
+msgid "Magic Heart Amulet"
+msgstr "Amuleto corazón mágico"
+
+#: armor.lua
+msgid "Your max health is increased by"
+msgstr "Tu salud máxima se ha incrementado en"
+
+#: armor.lua
+msgid "Your max health is decreased by"
+msgstr "Tu salud máxima se ha reducido en"
+
+#: armor.lua
+msgid "Magic Health Amulet"
+msgstr "Amuleto de salud mágico"
+
+#: armor.lua
+msgid "Magic Cross Amulet"
+msgstr "Amuleto cruz mágica"
+
+#: armor.lua
+msgid "Magic Blue Star Amulet"
+msgstr "Amuleto estrella azul mágico"
+
+#: farming.lua
+msgid "Magic_rose"
+msgstr "Rosa mágica"
+
+#: farming.lua
+msgid "Magic Rose Seed"
+msgstr "Semilla de rosa mágica"
+
+#: farming.lua
+msgid "Magic Rose Petals"
+msgstr "Pétalos de rosa mágica"
+
+#: farming.lua
+msgid "Magic Rosewater"
+msgstr "Agua de rosas mágica"
+
+#: farming.lua
+msgid "Magic Rose on a vase"
+msgstr "Rosa mágica en jarrón"
+
+#: farming.lua
+msgid "Magic Blue Rose"
+msgstr "Rosa azul mágica"
+
+#: farming.lua
+msgid "Magic Blue Rose Petals"
+msgstr "Petalos de rosa azul maǵica"
+
+#: farming.lua
+msgid "Magic Blue Dust"
+msgstr "Polvo azul maǵico"
+
+#: farming.lua
+msgid "Sugar"
+msgstr "Azúcar"
+
+#: farming.lua
+msgid "Sugarcane"
+msgstr "Caña de azúcar"
+
+#: farming.lua
+msgid "Sugarcane Sprout"
+msgstr "Brote de caña de azúcar"
+
+#: lemmontree.lua
+msgid "Lemmon"
+msgstr "Limón"
+
+#: lemmontree.lua
+msgid "Lemmon Tree Sapling"
+msgstr "Retoño de limonero"
+
+#: lemmontree.lua
+msgid "Lemmon Tree Trunk"
+msgstr "Madera de limonero"
+
+#: lemmontree.lua
+msgid "Lemmon Tree Wood"
+msgstr "Tablas de limonero"
+
+#: lemmontree.lua
+msgid "Lemmon Tree Leaves"
+msgstr "Hojas de limonero"
+
+#: lemmontree.lua
+msgid "Lemonade"
+msgstr "Limonada"
+
+#: food.lua
+msgid "Magic Donut"
+msgstr "Donut mágico"
+
+#: food.lua
+msgid "Magic Donut Dough"
+msgstr "Masa de donut mágico"
+
+#: food.lua
+msgid "Lemmon Pie"
+msgstr "Tarta de limón"
+
+#: food.lua
+msgid "Lemmon Pie Dough"
+msgstr "Masa de tarta de limón"
+
+#: food.lua
+msgid "Fay Cake"
+msgstr "Tarta de las hadas"
+
+#: food.lua
+msgid "Unbaked Clay Bowl"
+msgstr "Tazón de arcilla sin cocer"
+
+#: food.lua
+msgid "Clay Bowl"
+msgstr "Tazón de arcilla"
+
+#: food.lua
+msgid "Nymph Salad"
+msgstr "Ensalada de las ninfas"
+
+#: food.lua
+msgid "Siren Soup"
+msgstr "Ensalada de las sirenas"
+
+#: stairs.lua
+msgid "Stair Magic Block"
+msgstr "Escalera de bloque mágico"
+
+#: stairs.lua
+msgid "Slab Magic Block"
+msgstr "Losa de bloque mágico"
+
+#: stairs.lua
+msgid "Lemmon Tree Stair"
+msgstr "Escalera de limonero"
+
+#: stairs.lua
+msgid "Lemmon Tree Slab"
+msgstr "Losa de limonero"
+
+#: stairs.lua
+msgid "Lemmon Tree Inner Stair"
+msgstr "Escalera interior de limonero"
+
+#: stairs.lua
+msgid "Lemmon Tree Outer Stair"
+msgstr "Escalera exterior de limonero"
+
+#: crystal_ball.lua
+msgid "Magic Crystal Ball"
+msgstr "Bola de cristal mágica"
+
+#: crystal_ball.lua
+msgid "Lily has returned to her Magic Crystal Ball"
+msgstr "Lily ha vuelto a su bola de cristal."
+
+#: crystal_ball.lua
+msgid "Lily lives here"
+msgstr "Lily vive aquí"
+
+#: lily.lua
+msgid "Magic Ring"
+msgstr "Anillo mágico"
+
+#: lily.lua
+msgid "Lily's Wings"
+msgstr "Alas de Lily"
+
+#: lily.lua
+msgid "Follow me"
+msgstr "Sígueme."
+
+#: lily.lua
+msgid "Stand here"
+msgstr "Quédate aquí."
+
+#: lily.lua
+msgid "Do your own thing"
+msgstr "A tu bola."
+
+#: lily.lua
+msgid "Lily's Inventory"
+msgstr "Inventario de Lily"
+
+#: herbalism.lua
+msgid "Fire Flower"
+msgstr "Flor de fuego"
+
+#: herbalism.lua
+msgid "Gerbera Daisy"
+msgstr "Margarita gerbera"
+
+#: herbalism.lua
+msgid "Yellow Bell"
+msgstr "Campañilla amarilla"
+
+#: herbalism.lua
+msgid "Saffron Crocus"
+msgstr "Flor de azafrán"
+
+#: herbalism.lua
+msgid "Lucky Club"
+msgstr "Trébol de la suerte"
+
+#: herbalism.lua
+msgid "Orange Mycena"
+msgstr "Hongo micena naranja"
+
+#: herbalism.lua
+msgid "Cortinarius Violaceus"
+msgstr "Hongo cortinarius violeta"
+
+#: herbalism.lua
+msgid "Artic Carrot"
+msgstr "Zanahoria ártica"
+
+#: herbalism.lua
+msgid "Mandragora"
+msgstr "Mandragora"
+
+#: herbalism.lua
+msgid "Creosote Bush"
+msgstr "Arbusto creosote"
+
+#: herbalism.lua
+msgid "Vial (empty)"
+msgstr "Vial (vacío)"
+
+#: herbalism.lua
+msgid "Crystal Jar (empty)"
+msgstr "Tarro de cristal (vacío)"
+
+#: herbalism.lua
+msgid "Gerbera Oil"
+msgstr "Aceite de gerbera"
+
+#: herbalism.lua
+msgid "Fire Essence"
+msgstr "Esencia de fuego"
+
+#: herbalism.lua
+msgid "Saffron Bag"
+msgstr "Azafrán en sobre"
+
+#: herbalism.lua
+msgid "Cortinarius Poison"
+msgstr "Veneno de cortinarius"
+
+#: herbalism.lua
+msgid "Mint"
+msgstr "Menta"
+
+#: herbalism.lua
+msgid "Mint Juice"
+msgstr "Jugo de menta"
+
+#: herbalism.lua
+msgid "Mint Leaves"
+msgstr "Hojas de menta"
+
+#: aquatic.lua
+msgid "Pearl Oyster"
+msgstr "Ostra perlífera"
+
+#: aquatic.lua
+msgid "Pearl"
+msgstr "Perla"
+
+#: aquatic.lua
+msgid "Anemon"
+msgstr "Anémona"
+
+#: aquatic.lua
+msgid "Turtle Shell"
+msgstr "Caparazón de tortuga"
+
+#: black_pearl_anemon.lua
+msgid "Black Pearl Anemon"
+msgstr "Anémona de perla negra"
+
+#: black_pearl_anemon.lua
+msgid "Black Pearl"
+msgstr "Perla negra"

@@ -1,0 +1,23 @@
+--------------------
+CREDITS FOR TEXTURES
+--------------------
+
+- Arachne's Creative Commons pixel art
+https://forums.tigsource.com/index.php?topic=14166.0
+License Type: CC BY-NC-SA (Creative Commons Non-Comercial)
+
+- Kyrise's Free 16x16 RPG Icon Pack (https://kyrise.itch.io/)
+https://kyrise.itch.io/kyrises-free-16x16-rpg-icon-pack
+License Type: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+- Roguelike/RPG Items - Joe Williamson
+https://opengameart.org/content/roguelikerpg-items
+License Type: CC-BY-SA 3.0
+
+- 16x16 RPG Icons - Pack 1 - Items and Skills by 7Soul - @7SoulDesign
+https://www.deviantart.com/7soul1/art/16x16-RPG-Icons-Pack-1-Free-Sample-467188465
+License: "The icons in this pack are free for commercial use"
+
+- RPG potions 16x16 by Bonsaiheldin (http://bonsaiheld.org)
+https://opengameart.org/content/rpg-potions-16x16
+License: Attribution Notice

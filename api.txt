@@ -1,0 +1,91 @@
+---
+API
+---
+Index
+1. Settings
+2. Tables
+3. Functions
+4. Magic Effects
+
+------
+1| Settings
+------
+
+brewing.settings.generate_lemmontree (true by default)
+brewing.settings.bp_anemon_damage= tonumber(settings:get("bp_anemon_damage"))
+brewing.settings.cork ("brewing:cork" by default)
+brewing.settings.cork_count (16 by default)
+brewing.settings.cork_tool ("brewing:little_razor" by default)
+brewing.settings.donut_eat_hp (7 by default)
+brewing.settings.filled_flasks (5 by default)
+brewing.settings.flask_name ("vessels:glass_bottle" by default)
+brewing.settings.freeze_hit_points (5 by default)
+brewing.settings.freeze_time (3.0 by default)
+brewing.settings.generate_cortinarius_violaceus (true by default)
+brewing.settings.generate_creosote_bush (true by default)
+brewing.settings.generate_fire_flower (true by default)
+brewing.settings.generate_fire_flower (true by default)
+brewing.settings.generate_lucky_club (true by default)
+brewing.settings.generate_magic_rose (true by default)
+brewing.settings.generate_mint (true by default)
+brewing.settings.generate_orange_mycena (true by default)
+brewing.settings.generate_saffron_crocus (true by default)
+brewing.settings.generate_yellow_bell (true by default)
+brewing.settings.health_amulet_heal_points (2 by default)
+brewing.settings.health_amulet_power_level (15 by default)
+brewing.settings.heart_amulet_hp_inc_by (5 by default)
+brewing.settings.lily_hp (30 by default)
+brewing.settings.mana_fay_cake = tonumber(settings:get("mana_fay_cake")) (30 by default)
+brewing.settings.mana_magic_blue_tear_wand = tonumber(settings:get("mana_magic_blue_tear_wand")) (50 by default)
+brewing.settings.mana_magic_donut = tonumber(settings:get("mana_magic_donut")) (20 by default)
+brewing.settings.mana_magic_wand = tonumber(settings:get("mana_magic_wand")) (30 by default)
+brewing.settings.mana_nymph_salad = tonumber(settings:get("mana_nymph_salad")) (15 by default)
+brewing.settings.mana_siren_soup = tonumber(settings:get("mana_siren_soup")) (15 by default)
+brewing.settings.star_blue_amulet_speedup (1.05 by default)
+
+------
+2| Tables
+------
+
+brewing.craftlist
+  The list of crafts for potions (it's a separated list, not the default craft list, =fast crafting!)
+---
+brewing.settings.ignitor
+  A table with the "name" and "image" for the ignitor.
+---
+brewing.settings.water_name
+  List of the allowed liquids to make potions in the cauldron
+
+------
+3| Functions
+------
+
+brewing.set_filledflasks(num)
+  To change the number of potions created for each water bucket (5 by default, so you need 5 flasks to craft at least!!!)
+  i.e: brewing.set_filledflasks(2)
+---
+brewing.set_ignitor(name, image)
+  To change the ignitor:
+  i.e: brewing.set_ignitorname("default:mese_crystal", "mese_crystal.png")
+---
+brewing.register_potioncraft{output= "output_name", recipe={ {"ing+1", "ing+2", "ing+3"}, {"ing-1", "ing-2", "ing-3"} } }
+  To register a crafting for a potion.
+  The 6 ingredients for a potion are a table of 2x3 size.
+  i.e: brewing.register_potioncraft{output = "brewing:health_add1", recipe = { {'dye:red','default:apple',''}, {'','',''} } }
+---
+brewing.isvalidwater(water_name_to_check)
+  It returns true if the water type for brewing is in the 'brewing.settings.water_name' table.
+---
+brewing.get_cork = function(pos, node, player)
+  It gets the cork from a tree and returns 'true'.
+  It replaces the trunk node to: node.name..'_nobark'
+
+------
+4| Magic Effects
+------
+
+brewing.engine.effects.freeze(pointed_thing, user)
+
+---
+END
+---
