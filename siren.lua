@@ -78,7 +78,9 @@ mobs:register_mob("brewing:siren", {
 		if self then			
 				local pos = self.object:get_pos()
 				local node = minetest.get_node_or_nil(pos)
-			if not(minetest.registered_nodes[node.name].groups.water) then
+			if node and
+					minetest.registered_nodes[node.name] and
+					not minetest.registered_nodes[node.name].groups.water then
 				local pos = self.object:get_pos()				
 				local yaw = self.object:get_yaw() or 0
 				-- what is in front and one block below of mob?				
@@ -93,28 +95,30 @@ mobs:register_mob("brewing:siren", {
 					z = pos.z + dir_z,
 				}
 				local node = minetest.get_node_or_nil(pos_front_below)
-				if node then
-					if not(minetest.registered_nodes[node.name].groups.water) then
-						local pi = math.pi
-						self.object:set_yaw(yaw + 0.5*pi, 8)	
-						yaw = self.object:get_yaw() or 0
-						dir_x = -math.sin(yaw) * (self.collisionbox[4] + 0.5)
-						dir_z = math.cos(yaw) * (self.collisionbox[4] + 0.5)
-						pos_front_below = {
+				if node and
+						minetest.registered_nodes[node.name] and
+						not minetest.registered_nodes[node.name].groups.water then
+					local pi = math.pi
+					self.object:set_yaw(yaw + 0.5*pi, 8)	
+					yaw = self.object:get_yaw() or 0
+					dir_x = -math.sin(yaw) * (self.collisionbox[4] + 0.5)
+					dir_z = math.cos(yaw) * (self.collisionbox[4] + 0.5)
+					pos_front_below = {
+						x = pos.x + dir_x + 1,
+						y = pos.y - 0.5,
+						z = pos.z + dir_z,
+					}
+					node = minetest.get_node_or_nil(pos_front_below)
+					if node and
+							minetest.registered_nodes[node.name] and
+							minetest.registered_nodes[node.name].groups.water then
+						local pos_front = {
 							x = pos.x + dir_x + 1,
-							y = pos.y - 0.5,
+							y = pos.y,
 							z = pos.z + dir_z,
-						}
-						node = minetest.get_node_or_nil(pos_front_below)
-						if (minetest.registered_nodes[node.name].groups.water) then
-							local pos_front = {
-								x = pos.x + dir_x + 1,
-								y = pos.y,
-								z = pos.z + dir_z,
-							}			
-							self.object:move_to(pos_front, true)
-						end
-					end					
+						}			
+						self.object:move_to(pos_front, true)
+					end
 				end
 			end
 		end
