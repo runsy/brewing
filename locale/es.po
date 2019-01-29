@@ -378,6 +378,14 @@ msgid "Mandragora"
 msgstr "Mandragora"
 
 #: herbalism.lua
+msgid "Star Anise Plant"
+msgstr "Planta de anís estrellado"
+
+#: herbalism.lua
+msgid "Star Anise"
+msgstr "Anís estrellado"
+
+#: herbalism.lua
 msgid "Creosote Bush"
 msgstr "Arbusto creosote"
 

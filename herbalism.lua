@@ -45,6 +45,12 @@ brewing_flowers.datas = {
 		{-2 / 16, -0.5, -2 / 16, 2 / 16, 2 / 16, 2 / 16},
 		{flammable = 1}
 	},
+		{
+		"star_anise_plant",
+		S("Star Anise Plant"),
+		{-2 / 16, -0.5, -2 / 16, 2 / 16, 2 / 16, 2 / 16},
+		{flammable = 1}
+	},
 }
 
 local function add_simple_flower(name, desc, box, f_groups)
@@ -215,9 +221,9 @@ minetest.register_node("brewing:artic_carrot", {
 	}
 })
 
--- Artic Carrot
+-- Mandragora
 
-if mg_name ~= "v6" and mg_name ~= "singlenode" and brewing.settings.generate_madragora == true then
+if mg_name ~= "v6" and mg_name ~= "singlenode" and brewing.settings.generate_mandragora == true then
 	minetest.register_decoration({
 			deco_type = "simple",
 			place_on = "default:dirt_with_dry_grass",
@@ -246,6 +252,36 @@ minetest.register_node("brewing:mandragora", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, -1 / 16, 4 / 16},
+	}
+})
+
+-- Anise Star Plant
+
+if mg_name ~= "v6" and mg_name ~= "singlenode" and brewing.settings.generate_star_anise_plant == true then
+	minetest.register_decoration({
+			deco_type = "simple",
+			place_on = "default:dirt_with_dry_grass",
+			sidelen = 16,
+			fill_ratio = 0.0001,
+			biomes = {"savanna"},
+			decoration = "brewing:star_anise_plant",
+			height = 1,
+		})
+end
+
+-- Star Anise
+
+minetest.register_craftitem("brewing:star_anise", {
+	description = S("Star Anise"),
+	inventory_image = "brewing_star_anise.png",
+})
+
+minetest.register_craft( {
+	output = "brewing:star_anise 3",
+	recipe = {
+		{"", "", ""},
+		{"", "", ""},
+		{"", "brewing:star_anise_plant", ""}
 	}
 })
 

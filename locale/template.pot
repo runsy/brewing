@@ -379,6 +379,14 @@ msgid "Mandragora"
 msgstr ""
 
 #: herbalism.lua
+msgid "Star Anise Plant"
+msgstr ""
+
+#: herbalism.lua
+msgid "Star Anise"
+msgstr ""
+
+#: herbalism.lua
 msgid "Vial (empty)"
 msgstr ""
 
