@@ -456,3 +456,7 @@ msgstr "Anémona de perla negra"
 #: black_pearl_anemon.lua
 msgid "Black Pearl"
 msgstr "Perla negra"
+
+#: weapons.lua
+msgid "Fury of Sun Sword"
+msgstr "Espada furia del sol"

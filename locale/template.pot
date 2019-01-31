@@ -457,3 +457,7 @@ msgstr ""
 #: black_pearl_anemon.lua
 msgid "Black Pearl"
 msgstr ""
+
+#: weapons.lua
+msgid "Fury of Sun Sword"
+msgstr ""
