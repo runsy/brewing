@@ -19,7 +19,7 @@ minetest.register_tool("brewing:fury_sun_sword", {
 			if brewing.is_night() == false and not (fury_sun_sword_disabled) then
 				brewing.engine.effects.light_strike(user, pointed_thing) --Light Strike Effect			
 				fury_sun_sword_disabled = true	
-				minetest.after(7.0, function()
+				minetest.after(brewing.settings.fury_sun_sword_wait_time, function()
 					fury_sun_sword_disabled = false
 					end)
 			else
