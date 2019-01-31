@@ -34,6 +34,6 @@ minetest.register_craft({
 	recipe = {
 		{'', 'brewing:magic_crystal', ''},
 		{'', 'brewing:fire_essence', ''},
-		{'', 'default:gold_sword', ''}
+		{'', 'default:sword_mese', ''}
 	}
 })
