@@ -33,7 +33,7 @@ minetest.register_craft({
 	output = '"brewing:fury_sun_sword" 1',
 	recipe = {
 		{'', 'brewing:magic_crystal', ''},
-		{'', 'brewing:magic_crystal', ''},
+		{'', 'brewing:fire_essence', ''},
 		{'', 'default:gold_sword', ''}
 	}
 })
