@@ -28,6 +28,7 @@ brewing.settings.ignitor["image"]= settings:get("ignitor_image")
 brewing.settings.ignitor["name"]= settings:get("ignitor_name")
 brewing.settings.lily_hp = settings:get("lily_hp", true)
 brewing.settings.star_blue_amulet_speedup= tonumber(settings:get("star_blue_amulet_speedup"))
+brewing.settings.fury_sun_sword_wait_time= tonumber(settings:get("fury_sun_sword_wait_time"))
 -- Mana Mod Settings
 if minetest.get_modpath("mana") ~= nil then
 	--Add
