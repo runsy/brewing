@@ -201,7 +201,7 @@ brewing = {
 	end,
 	is_night = function()
 		local timeofday = minetest.get_timeofday() * 24000
-		if (timeofday < 4500) or (timeofday> 19500) then
+		if (timeofday < 4500) or (timeofday > 19500) then
 			return true
 		else
 			return false

@@ -186,7 +186,96 @@ brewing.engine = {
 			local new_hp = entity_hp - brewing.settings.freeze_hit_points
 			pointed_thing:set_hp(new_hp)			
 		end,
-	},	
+		ps = {},
+		ttl = 1,
+		revertsky = function()
+			if brewing.engine.effects.ttl == 0 then
+				return
+			end
+			brewing.engine.effects.ttl = brewing.engine.effects.ttl - 1
+			if brewing.engine.effects.ttl > 0 then
+				return
+			end
+			for key, entry in pairs(brewing.engine.effects.ps) do
+				local sky = entry.sky
+				entry.p:set_sky(sky.bgcolor, sky.type, sky.textures)
+			end
+			brewing.engine.effects.ps = {}
+		end,
+		light_strike = function(user, enemy)
+			local lightning_size = 100
+			local rng = PcgRandom(32321123312123)
+			local enemy_entity = enemy.ref
+			local pos = enemy_entity:get_pos()
+			minetest.add_particlespawner({
+				amount = 1,
+				time = 0.2,
+				-- make it hit the top of a block exactly with the bottom
+				minpos = {x = pos.x, y = pos.y + (lightning_size / 2) + 1/2, z = pos.z },
+				maxpos = {x = pos.x, y = pos.y + (lightning_size / 2) + 1/2, z = pos.z },
+				minvel = {x = 0, y = 0, z = 0},
+				maxvel = {x = 0, y = 0, z = 0},
+				minacc = {x = 0, y = 0, z = 0},
+				maxacc = {x = 0, y = 0, z = 0},
+				minexptime = 0.2,
+				maxexptime = 0.2,
+				minsize = lightning_size * 10,
+				maxsize = lightning_size * 10,
+				collisiondetection = true,
+				vertical = true,
+				-- to make it appear hitting the node that will get set on fire, make sure
+				-- to make the texture lightning bolt hit exactly in the middle of the
+				-- texture (e.g. 127/128 on a 256x wide texture)
+				texture = "brewing_sun_ray.png",
+				-- 0.4.15+
+				glow = 14,
+			})
+			minetest.sound_play({ pos = pos, name = "brewing_thunder", gain = 10, max_hear_distance = 100 })
+			-- damage enemy object
+			local enemy_isdead = false
+			enemy_entity:punch(enemy_entity, 1.0, {full_punch_interval = 1.0, damage_groups = {fleshy=8}}, nil)						
+			if enemy_entity:get_hp() <= 0 then
+				enemy_isdead = true
+			end
+			local players = {}
+			if (user:is_player()) then
+				table.insert(players, user)
+			end
+			if enemy_entity:is_player() then
+				table.insert(players, enemy_entity)
+			end
+			for player_ in brewing.arrayvalues(players) do
+				local name = player_:get_player_name()
+				local sky = {}
+				sky.bgcolor, sky.type, sky.textures = player_:get_sky()
+				if brewing.engine.effects.ps[name] == nil then
+					brewing.engine.effects.ps[name] = {p = player_, sky = sky}
+					player_:set_sky(0xffffff, "plain", {})
+				end			
+			end
+			-- trigger revert of skybox
+			brewing.engine.effects.ttl = 5
+			-- set the air node above it on fire
+			if not enemy_isdead then
+				local pos_y = pos.y
+				pos.y = pos.y - 1
+				local n = minetest.get_node(pos)
+				if minetest.get_item_group(n.name, "tree") > 0 then
+					minetest.set_node(pos, { name = "default:coalblock"})
+				elseif minetest.get_item_group(n.name, "sand") > 0 then
+					minetest.set_node(pos, { name = "default:glass"})
+				elseif minetest.get_item_group(n.name, "soil") > 0 then
+					minetest.set_node(pos, { name = "default:gravel"})
+				end
+				pos.y = pos_y 
+				if minetest.get_item_group(minetest.get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name, "liquid") < 1 then
+					if minetest.get_node(pos).name == "air" then
+						minetest.set_node(pos, {name = "fire:basic_flame"})
+				end
+			end
+			end							
+		end,
+	},		
 	grant = function(time, playername, potion_name, type, flags)
 		local rootdef = minetest.registered_items[potion_name]
 		if rootdef == nil then
@@ -548,3 +637,5 @@ minetest.register_entity("brewing:freeze_entity", {
 	is_visible = true,
 	makes_footstep_sound = false,
 })
+
+minetest.register_globalstep(brewing.engine.effects.revertsky)

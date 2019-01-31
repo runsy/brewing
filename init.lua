@@ -35,6 +35,7 @@ if minetest.get_modpath("mobs") ~= nil then
 	assert(loadfile(modpath .. "/black_pearl_anemon.lua"))(modpath, S) --Definition of the Siren NPC
 end
 assert(loadfile(modpath .. "/tools.lua"))(modpath, S) --Definition of the tools
+assert(loadfile(modpath .. "/weapons.lua"))(modpath, S) --Definition of the weapons
 assert(loadfile(modpath .. "/wands.lua"))(modpath, S) --Definition of the wands
 assert(loadfile(modpath .. "/aquatic.lua"))(modpath, S) --Definition of the nodes
 assert(loadfile(modpath .. "/potions.lua"))(modpath, S) --Definition of the potions crafting

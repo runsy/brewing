@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-11 23:40+0100\n"
+"POT-Creation-Date: 2019-01-31 19:38+0100\n"
 "PO-Revision-Date: 2018-11-05 23:04+0100\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -424,6 +424,14 @@ msgstr ""
 
 #: herbalism.lua
 msgid "Creosote Bush"
+msgstr ""
+
+#: herbalism.lua
+msgid "Calla"
+msgstr ""
+
+#: herbalism.lua
+msgid "Lavender"
 msgstr ""
 
 #: aquatic.lua

@@ -425,6 +425,14 @@ msgstr "Jugo de menta"
 msgid "Mint Leaves"
 msgstr "Hojas de menta"
 
+#: herbalism.lua
+msgid "Calla"
+msgstr "Calla"
+
+#: herbalism.lua
+msgid "Lavender"
+msgstr "Lavanda"
+
 #: aquatic.lua
 msgid "Pearl Oyster"
 msgstr "Ostra perlífera"

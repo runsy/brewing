@@ -51,6 +51,18 @@ brewing_flowers.datas = {
 		{-2 / 16, -0.5, -2 / 16, 2 / 16, 2 / 16, 2 / 16},
 		{flammable = 1}
 	},
+		{
+		"calla",
+		S("Calla"),
+		{-2 / 16, -0.5, -2 / 16, 2 / 16, 2 / 16, 2 / 16},
+		{flammable = 1}
+	},
+		{
+		"lavender",
+		S("Lavender"),
+		{-2 / 16, -0.5, -2 / 16, 2 / 16, 2 / 16, 2 / 16},
+		{flammable = 1}
+	},
 }
 
 local function add_simple_flower(name, desc, box, f_groups)
@@ -284,6 +296,39 @@ minetest.register_craft( {
 		{"", "brewing:star_anise_plant", ""}
 	}
 })
+
+
+-- Lavender
+
+if mg_name ~= "v6" and mg_name ~= "singlenode" and brewing.settings.generate_lavender == true then
+	minetest.register_decoration({
+			deco_type = "simple",
+			place_on = "default:dirt_with_grass",
+			sidelen = 16,
+			fill_ratio = 0.001,
+			biomes = {"deciduous_forest"},
+			decoration = "brewing:lavender",
+			y_min = 1,
+			y_max = 2,
+			height = 1,
+		})
+end
+
+-- Calla
+
+if mg_name ~= "v6" and mg_name ~= "singlenode" and brewing.settings.generate_calla== true then
+	minetest.register_decoration({
+			deco_type = "simple",
+			place_on = "default:dirt_with_grass",
+			sidelen = 16,
+			fill_ratio = 0.001,
+			biomes = {"deciduous_forest"},
+			decoration = "brewing:calla",
+			y_min = 1,
+			y_max = 2,
+			height = 1,
+		})
+end
 
 -- Orange Mycena
 
