@@ -29,6 +29,7 @@ assert(loadfile(modpath .. "/engine.lua"))(modpath, S) --Definition of the 'brew
 --end
 assert(loadfile(modpath .. "/settings.lua"))(modpath, S) --Read the 'brewing.conf' file
 assert(loadfile(modpath .. "/nodes.lua"))(modpath, S) --Definition of the nodes
+assert(loadfile(modpath .. "/meteor.lua"))(modpath, S, mg_name) --Definition of the meteor stuff
 if minetest.get_modpath("mobs") ~= nil then
 	assert(loadfile(modpath .. "/lily.lua"))(modpath, S) --Definition of the Fairy NPC
 	assert(loadfile(modpath .. "/siren.lua"))(modpath, S) --Definition of the Siren NPC

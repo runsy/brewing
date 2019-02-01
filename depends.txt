@@ -6,6 +6,7 @@ flowers
 stairs
 tnt
 vessels
+fire
 3d_armor?
 mana?
 mobs?
