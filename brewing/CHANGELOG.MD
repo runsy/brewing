@@ -1,0 +1,5 @@
+-Support for v5.0 only. After now it will not work on prior versions, sorry.
+-Lily now dies if her owner abandon the game (in multiplayer mode only)
+-Added Clementine Set: Tree, Fruit, Wood, Stairs, Jam...
+-Added Lunar Meteor block. It spawns rarely on deserts.
+-Some minor tweaks and fixes.
