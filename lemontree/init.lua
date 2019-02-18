@@ -42,7 +42,7 @@ local function grow_new_lemontree_tree(pos)
 		return
 	end
 
-	minetest.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2}, modpath.."/schematics/lemontree.mts", "0", nil, false)
+	minetest.place_schematic({x = pos.x-2, y = pos.y, z = pos.z-2}, modpath.."/schematics/lemontree.mts", "0", nil, true)
 end
 
 --
@@ -68,7 +68,6 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		schematic = modpath.."/schematics/lemontree.mts",
 		flags = "place_center_x, place_center_z, force_placement",
 		rotation = "random",
-		place_offset_y = 1,
 	})
 end
 
@@ -108,7 +107,6 @@ minetest.register_node("lemontree:sapling", {
 			{x = 2, y = 6, z = 2},
 			-- maximum interval of interior volume check
 			4)
-
 		return itemstack
 	end,
 })
@@ -126,7 +124,9 @@ minetest.register_node("lemontree:trunk", {
 	is_ground_content = false,
 	on_place = minetest.rotate_node,
 	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
-		cork.get_cork(pos, node, player, itemstack, pointed_thing)
+		if minetest.get_modpath("cork") ~= nil then	
+			cork.get_cork(pos, node, player, itemstack, pointed_thing)
+		end
 	end,
 })
 
