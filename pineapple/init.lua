@@ -1,5 +1,5 @@
 --
--- Pineappletree
+-- Pineapple
 --
 
 local modname = "pineapple"
@@ -96,7 +96,7 @@ minetest.register_node("pineapple:sapling", {
 	sounds = default.node_sound_leaves_defaults(),
 
 	on_construct = function(pos)
-		minetest.get_node_timer(pos):start(math.random(1,1))
+		minetest.get_node_timer(pos):start(math.random(2400,4800))
 	end,
 
 	on_place = function(itemstack, placer, pointed_thing)
@@ -121,6 +121,6 @@ minetest.register_lbm({
 	name = "pineapple:convert_pineapple_saplings_to_node_timer",
 	nodenames = {"pineapple:sapling"},
 	action = function(pos)
-		minetest.get_node_timer(pos):start(math.random(1, 1))
+		minetest.get_node_timer(pos):start(math.random(1200, 2400))
 	end
 })
