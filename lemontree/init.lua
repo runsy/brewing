@@ -4,6 +4,7 @@
 
 local modname = "lemontree"
 local modpath = minetest.get_modpath(modname)
+local mg_name = minetest.get_mapgen_setting("mg_name")
 
 -- internationalization boilerplate
 local S = minetest.get_translator(minetest.get_current_modname())
