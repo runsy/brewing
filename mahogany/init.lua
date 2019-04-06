@@ -1,9 +1,11 @@
 --
 -- Mahogany
 --
+
 local modname = "mahogany"
 local modpath = minetest.get_modpath(modname)
 local mg_name = minetest.get_mapgen_setting("mg_name")
+
 
 -- internationalization boilerplate
 local S = minetest.get_translator(minetest.get_current_modname())
@@ -38,6 +40,7 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 			persist = 0.66
 		},
 		biomes = {"rainforest"},
+		height = 2,
 		y_min = 1,
 		y_max = 32,
 		schematic = modpath.."/schematics/mahogany.mts",

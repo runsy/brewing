@@ -28,7 +28,7 @@ end
 if mg_name ~= "v6" and mg_name ~= "singlenode" then
 	minetest.register_decoration({
 		deco_type = "schematic",
-		place_on = {"default:dirt_with_grass"},
+		place_on = {"default:dirt_with_rainforest_litter"},
 		sidelen = 16,
 		noise_params = {
 			offset = 0.0005,
@@ -44,6 +44,7 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		schematic = modpath.."/schematics/pineapple.mts",
 		flags = "place_center_x, place_center_z,  force_placement",
 		rotation = "random",
+		place_offset_y = 1,
 	})
 end
 
@@ -73,6 +74,7 @@ minetest.register_node("pineapple:pineapple", {
 	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = default.after_place_leaves,
+	on_use = minetest.item_eat(3, "pineapple:sapling"),
 })
 
 
