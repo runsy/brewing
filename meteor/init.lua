@@ -2,6 +2,8 @@ local modname = "meteor"
 
 local modpath = minetest.get_modpath(modname)
 
+local mg_name = minetest.get_mapgen_setting("mg_name")
+
 local S = minetest.get_translator(minetest.get_current_modname())
 
 --  Meteor
@@ -53,5 +55,5 @@ minetest.register_node("meteorite:lunar_meteor_hot", {
 	description = S("Lunar Meteor"),
 	tiles = {"meteorite_lunar_meteor_hot.png"},
 	groups = {cracky=3, hot=3, falling_node=1, stone=1},
-	light_source = 20,
+	light_source = minetest.LIGHT_MAX,
 })
