@@ -14,7 +14,7 @@ minetest.register_craftitem("brewing:magic_wand", {
 				local user_pos = user:getpos()
 				user_pos.y = user_pos.y+0.5
 
-				local enemy_pos =  minetest.get_pointed_thing_position(pointed_thing, above)
+				local enemy_pos =  minetest.get_pointed_thing_position(pointed_thing, true)
 
 				enemy_pos.x = enemy_pos.x
 				enemy_pos.y = enemy_pos.y
