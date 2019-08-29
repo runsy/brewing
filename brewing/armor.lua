@@ -134,6 +134,9 @@ armor:register_armor("brewing:magic_heart_amulet", {
 		local current_hp_max = player:get_properties().hp_max
 		local with_amulet_hp_max = current_hp_max + brewing.settings.heart_amulet_hp_inc_by
 		player:set_properties({hp_max = with_amulet_hp_max})
+		if minetest.get_modpath("hudbars") ~= nil then	
+			hb.change_hudbar(player, "health", player:get_hp(), with_amulet_hp_max, nil, nil, nil, nil, nil)
+		end
 		local player_name = player:get_player_name()
 		minetest.chat_send_player(player_name, S("Your max health is increased by").." "..tostring(brewing.settings.heart_amulet_hp_inc_by)..".")
 	end,
@@ -141,6 +144,9 @@ armor:register_armor("brewing:magic_heart_amulet", {
 		local current_hp_max = player:get_properties().hp_max
 		local with_amulet_hp_max = current_hp_max - brewing.settings.heart_amulet_hp_inc_by
 		player:set_properties({hp_max = with_amulet_hp_max})
+		if minetest.get_modpath("hudbars") ~= nil then				
+			hb.change_hudbar(player, "health", player:get_hp(), with_amulet_hp_max, nil, nil, nil, nil, nil)
+		end
 		local player_name = player:get_player_name()
 		minetest.chat_send_player(player_name, S("Your max health is decreased by").." "..tostring(brewing.settings.heart_amulet_hp_inc_by)..".")
 	end,
