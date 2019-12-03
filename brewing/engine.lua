@@ -230,7 +230,7 @@ brewing.engine = {
 				-- 0.4.15+
 				glow = 14,
 			})
-			minetest.sound_play({ pos = pos, name = "brewing_thunder", gain = 10, max_hear_distance = 100 })
+			minetest.sound_play({ pos = pos, name = "brewing_thunder", gain = 10, max_hear_distance = 20 })
 			-- damage enemy object
 			local enemy_isdead = false
 			enemy_entity:punch(enemy_entity, 1.0, {full_punch_interval = 1.0, damage_groups = {fleshy=8}}, nil)						

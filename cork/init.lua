@@ -28,7 +28,7 @@ cork = {
 		return result
 	end,
 	cut_sound = function(dest, dest_name, soundfile)
-		minetest.sound_play(soundfile, {dest = dest_name, gain = 0.4})
+		minetest.sound_play(soundfile, {dest = dest_name, gain = 0.4, max_hear_distance = 10,})
 	end,
 }
 

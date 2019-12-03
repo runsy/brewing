@@ -17,6 +17,7 @@ armor:register_armor("brewing:magic_helmet", {
 				name = "brewing_break_armor_sound",
 				pos = pos,
 				gain = 0.5,
+				max_hear_distance = 10,
 			})
 		end
 	end,
@@ -38,6 +39,7 @@ armor:register_armor("brewing:magic_chestplate", {
 				name = "brewing_break_armor_sound",
 				pos = pos,
 				gain = 0.5,
+				max_hear_distance = 10,
 			})
 		end
 	end,
@@ -59,6 +61,7 @@ armor:register_armor("brewing:magic_leggins", {
 				name = "brewing_break_armor_sound",
 				pos = pos,
 				gain = 0.5,
+				max_hear_distance = 10,
 			})
 		end
 	end,
@@ -80,6 +83,7 @@ armor:register_armor("brewing:magic_boots", {
 				name = "brewing_break_armor_sound",
 				pos = pos,
 				gain = 0.5,
+				max_hear_distance = 10,
 			})
 		end
 	end,
