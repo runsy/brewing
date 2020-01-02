@@ -50,6 +50,22 @@ minetest.register_tool("cork:little_razor", {
 		},
 		damage_groups = {fleshy=4},
 	},
+	on_use = function(itemstack, user, pointed_thing)
+		if pointed_thing.type ~= "node" then
+			return
+		end
+		local pos = pointed_thing.under
+		if minetest.is_protected(pos, user:get_player_name()) then
+			minetest.record_protection_violation(pos, user:get_player_name())
+			return
+		end
+		local node = minetest.get_node(pos)
+		local node_name = node.name
+		if node_name ~= "lemontree:trunk" then
+			return
+		end
+		cork.get_cork(pos, node, user, itemstack, pointed_thing)
+	end,	
 	sound = {breaks = "default_tool_breaks"},
 })
 
