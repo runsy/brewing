@@ -151,7 +151,7 @@ brewing.engine = {
 				if (user:is_player()) then					
 					dest = "to_player"
 				else
-					dest = "entity"
+					dest = "object"
 				end
 				brewing.magic_aura(user, user_pos, emitter, "freeze")
 				entity_to_freeze:set_attach(freeze_entity, "", {x=0,y=0,z=0}, {x=0,y=0,z=0})

@@ -184,7 +184,11 @@ brewing = {
 		})
 	end,
 	magic_sound = function(dest, dest_name, soundfile)
-		minetest.sound_play(soundfile, {dest = dest_name, gain = 0.4, max_hear_distance = 8})
+		if dest == "to_player" then
+			minetest.sound_play(soundfile, {to_player = dest_name, gain = 0.4, max_hear_distance = 8})
+		elseif dest == "object" then
+			minetest.sound_play(soundfile, {object = dest_name, gain = 0.4, max_hear_distance = 8})
+		end
 	end,
 	is_night = function()
 		local timeofday = minetest.get_timeofday() * 24000
