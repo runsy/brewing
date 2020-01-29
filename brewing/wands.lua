@@ -42,7 +42,7 @@ minetest.register_craftitem("brewing:magic_wand", {
 				})
 			--Now put the magic rose seed
 			farming.place_seed (nil, user, pointed_thing, "brewing:seed_magic_rose")
-			brewing.magic_sound("object", pointed_thing, "brewing_magic_sound")
+			brewing.magic_sound("object", pointed_thing.ref, "brewing_magic_sound")
 			if minetest.get_modpath("mana") ~= nil then
 				mana.subtract_up_to(user, brewing.settings.mana_magic_wand)
 			end
@@ -96,10 +96,10 @@ minetest.register_craftitem("brewing:magic_blue_tear_wand", {
 			local pos_above = minetest.get_pointed_thing_position(pointed_thing, above)
 			if  minetest.registered_nodes[node_above_name].groups.water then							
 				minetest.set_node(pos_above, {name = "default:ice"})
-				brewing.magic_sound(dest, pointed_thing, "brewing_freeze")
+				brewing.magic_sound(dest, pointed_thing.ref, "brewing_freeze")
 			end
 		else
-			brewing.magic_sound("object", pointed_thing, "brewing_magic_failure")
+			brewing.magic_sound("object", pointed_thing.ref, "brewing_magic_failure")
 		end
 	end
 })
