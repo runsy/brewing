@@ -20,15 +20,15 @@ cork = {
 			if inv:room_for_item("main", ItemStack(brewing.settings.cork)) then
 				inv:add_item("main", ItemStack(cork.settings.cork.." "..tostring(cork.settings.cork_count))) --add cork to player's inventory
 				minetest.set_node(pos, {name=node.name.."_nobark"}) -- replace the trunk
-				cork.cut_sound("to_player", player, "cork_cut")
+				cork.cut_sound(player, "cork_cut")
 				result = true
 			end
 		end
 		minetest.item_place_node(itemstack, player, pointed_thing, nil)
 		return result
 	end,
-	cut_sound = function(dest, dest_name, soundfile)
-		minetest.sound_play(soundfile, {dest = dest_name, gain = 0.4, max_hear_distance = 10,})
+	cut_sound = function(dest_name, soundfile)
+		minetest.sound_play(soundfile, {to_player = dest_name, gain = 0.4, max_hear_distance = 10,})
 	end,
 }
 

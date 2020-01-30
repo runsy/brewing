@@ -155,10 +155,10 @@ brewing.engine = {
 				end
 				brewing.magic_aura(user, user_pos, emitter, "freeze")
 				entity_to_freeze:set_attach(freeze_entity, "", {x=0,y=0,z=0}, {x=0,y=0,z=0})
-				brewing.magic_sound(dest, pointed_thing, "brewing_freeze")		
+				brewing.magic_sound(dest, pointed_thing.ref, "brewing_freeze")		
 				minetest.after(brewing.settings.freeze_time, function() --Unfreeze after x seconds
 					freeze_entity:remove()
-					brewing.magic_sound(dest, pointed_thing, "brewing_locksbreak")
+					brewing.magic_sound(dest, pointed_thing.ref, "brewing_locksbreak")
 					if entity_to_freeze then
 						entity_to_freeze:set_detach()
 						local entity_hp = entity_to_freeze:get_hp()
@@ -181,7 +181,7 @@ brewing.engine = {
 			else
 				dest = "object"
 			end
-			brewing.magic_sound(dest, pointed_thing, "brewing_splash")					
+			brewing.magic_sound(dest, pointed_thing.ref, "brewing_splash")					
 			local entity_hp = pointed_thing:get_hp()
 			local new_hp = entity_hp - brewing.settings.freeze_hit_points
 			pointed_thing:set_hp(new_hp)			
