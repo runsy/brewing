@@ -183,11 +183,12 @@ brewing = {
 			playername = "singleplayer"
 		})
 	end,
-	magic_sound = function(dest, dest_name, soundfile)
-		if dest == "to_player" then
-			minetest.sound_play(soundfile, {to_player = dest_name, gain = 0.4, max_hear_distance = 8})
-		elseif dest == "object" then
-			minetest.sound_play(soundfile, {object = dest_name, gain = 0.4, max_hear_distance = 8})
+	magic_sound = function(dest_type, dest, soundfile)
+		if dest_type == "to_player" then
+			local player_name = dest:get_player_name()
+			minetest.sound_play(soundfile, {to_player = player_name, gain = 0.4, max_hear_distance = 8})
+		elseif dest_type == "object" then
+			minetest.sound_play(soundfile, {object = dest, gain = 0.4, max_hear_distance = 8})
 		end
 	end,
 	is_night = function()
