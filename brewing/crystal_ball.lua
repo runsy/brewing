@@ -36,9 +36,9 @@ minetest.register_node("brewing:magic_crystal_ball", {
 				meta:set_string("owner", player_name)
 				meta:set_string("infotext", S("Lily lives here"))
 				brewing.magic_aura(node, pos, "node", "default")
-				brewing.magic_sound("object", pointed_thing.ref, "brewing_magic_sound")
+				brewing.magic_sound("pos", pos, "brewing_magic_sound")
 			else
-				brewing.magic_sound("object", pointed_thing.ref, "brewing_magic_failure")
+				brewing.magic_sound("pos", pos, "brewing_magic_failure")
 			end
 
 		else
@@ -49,9 +49,9 @@ minetest.register_node("brewing:magic_crystal_ball", {
 				meta:set_string("infotext", "")
 				minetest.chat_send_player(player_name, S("Lily has returned to her Magic Crystal Ball."))
 				brewing.magic_aura(node, pos, "node", "default")
-				brewing.magic_sound("object", pointed_thing.ref, "brewing_magic_sound")
+				brewing.magic_sound("pos", pos, "brewing_magic_sound")
 			else
-				brewing.magic_sound("object", pointed_thing.ref, "brewing_magic_failure")
+				brewing.magic_sound("pos", pos, "brewing_magic_failure")
 			end
 		end
 	end,

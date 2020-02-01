@@ -155,17 +155,17 @@ brewing.engine = {
 				end
 				brewing.magic_aura(user, user_pos, emitter, "freeze")
 				entity_to_freeze:set_attach(freeze_entity, "", {x=0,y=0,z=0}, {x=0,y=0,z=0})
-				brewing.magic_sound(dest, pointed_thing.ref, "brewing_freeze")		
-				minetest.after(brewing.settings.freeze_time, function() --Unfreeze after x seconds
+				brewing.magic_sound("pos", pos, "brewing_freeze")		
+				minetest.after(brewing.settings.freeze_time, function(pos) --Unfreeze after x seconds
 					freeze_entity:remove()
-					brewing.magic_sound(dest, pointed_thing.ref, "brewing_locksbreak")
+					brewing.magic_sound("pos", pos, "brewing_locksbreak")
 					if entity_to_freeze then
 						entity_to_freeze:set_detach()
 						local entity_hp = entity_to_freeze:get_hp()
 						local new_hp = entity_hp - brewing.settings.freeze_hit_points
 						entity_to_freeze:set_hp(new_hp)
 					end
-				end)
+				end, pos)
 				if minetest.get_modpath("mana") ~= nil then
 					mana.subtract_up_to(user, brewing.settings.mana_magic_blue_tear_wand)
 				end
@@ -177,11 +177,8 @@ brewing.engine = {
 			brewing.magic_aura(user, user_pos, emitter, "freeze")
 			local dest = ""
 			if pointed_thing:is_player() then
-				dest = "to_player"
-			else
-				dest = "object"
-			end
-			brewing.magic_sound(dest, pointed_thing.ref, "brewing_splash")					
+				brewing.magic_sound("pos", user_pos, "brewing_splash")	
+			end				
 			local entity_hp = pointed_thing:get_hp()
 			local new_hp = entity_hp - brewing.settings.freeze_hit_points
 			pointed_thing:set_hp(new_hp)			

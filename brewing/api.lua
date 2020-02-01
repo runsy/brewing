@@ -189,6 +189,8 @@ brewing = {
 			minetest.sound_play(soundfile, {to_player = player_name, gain = 0.4, max_hear_distance = 8})
 		elseif dest_type == "object" then
 			minetest.sound_play(soundfile, {object = dest, gain = 0.4, max_hear_distance = 8})
+		elseif dest_type == "pos" then
+			minetest.sound_play(soundfile, {pos = dest, gain = 0.4, max_hear_distance = 8})
 		end
 	end,
 	is_night = function()

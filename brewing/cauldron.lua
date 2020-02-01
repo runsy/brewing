@@ -99,7 +99,7 @@ local function decrease_stacks(pos, ing_listname, ing_stack, howmuch)
 	inv:set_stack(ing_listname, 1, ing_stack)
 end
 
-local function try_to_make_potion(pos)
+local function try_to_make_potion(pos, player)
 	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
 	local ingplus1, ingplus2, ingplus3, ingminus1, ingminus2, ingminus3, ignitor, water, flask, dst
@@ -157,7 +157,7 @@ local function try_to_make_potion(pos)
 					end
 					--replace the water bucket-->
 					inv:set_stack("water", 1, ItemStack("bucket:bucket_empty 1"))
-					brewing.magic_sound("to_player", user, "brewing_realization")
+					brewing.magic_sound("to_player", player, "brewing_realization")
 					--Message to player
 					--minetest.chat_send_player("singleplayer", S("Potion created!)")
 				end
@@ -221,11 +221,11 @@ minetest.register_node("brewing:magic_cauldron", {
 		minetest.remove_node(pos)
 		return drops
 	end,
-	on_metadata_inventory_move = function(pos)
-		try_to_make_potion(pos)
+	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+		try_to_make_potion(pos, player)
 	end,
-	on_metadata_inventory_put = function(pos)
-		try_to_make_potion(pos)
+	on_metadata_inventory_put = function(pos, listname, index, stack, player)
+		try_to_make_potion(pos, player)
 	end,
 	allow_metadata_inventory_put = allow_metadata_inventory_put,
 	allow_metadata_inventory_move = allow_metadata_inventory_move,
