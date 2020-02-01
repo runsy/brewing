@@ -40,7 +40,6 @@ minetest.register_node("brewing:magic_crystal_ball", {
 			else
 				brewing.magic_sound("pos", pos, "brewing_magic_failure")
 			end
-
 		else
 			if (meta:get_string("owner") == player_name) and (brewing.entities.lily.owner == player_name) then
 				brewing.entities.lily.object:remove()

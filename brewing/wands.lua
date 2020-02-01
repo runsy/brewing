@@ -99,7 +99,7 @@ minetest.register_craftitem("brewing:magic_blue_tear_wand", {
 				brewing.magic_sound("pos", pointed_thing.above, "brewing_freeze")
 			end
 		else
-			brewing.magic_sound("to_player", user:get_player_name(), "brewing_magic_failure")
+			brewing.magic_sound("to_player", user, "brewing_magic_failure")
 		end
 	end
 })
