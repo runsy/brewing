@@ -83,66 +83,12 @@ brewing = {
 		local posbelow = {x = pos.x, y = pos.y - 1, z = pos.z}	
 		return posbelow
 	end,			
-	-- Function to register the potions
-	register_potioncraft = function(potioncraft)
-		brewing.craftlist[#brewing.craftlist+1] = {potioncraft.output	, potioncraft.recipe}
-	end,
-	--custom function to get only array values of tables, not keys
-	arrayvalues = function(arr)
-		local i = 0
-		return function() i = i + 1; return arr[i] end
-	end,
 	set_filledflasks = function(num)
 		brewing.settings.filled_flasks= num
 	end,
 	set_ignitor = function(name, image)
 		brewing.settings.ignitor["name"]= name
 		brewing.settings.ignitor["image"]= image
-	end,
-	get_craft_result = function(itemlist)
-		--recipes are 2x3
-		local match = false
-		local output
-		--To get the output of the first potion: minetest.chat_send_player("singleplayer", brewing.craftlist[1][1])
-		--To get the first ingredient of the first potion: minetest.chat_send_player("singleplayer", brewing.craftlist[1][2][1][1])
-		--for key, potioncraft in pairs(brewing.craftlist) do
-		for potioncraft in brewing.arrayvalues(brewing.craftlist) do
-			--To get the output of the potion: minetest.chat_send_player("singleplayer", potioncraft[1])
-			--To get the first ingredient of the 1st row of the potion: minetest.chat_send_player("singleplayer", potioncraft[2][1][1])
-			--To get the first ingredient of the 2nd row of the potion: minetest.chat_send_player("singleplayer", potioncraft[2][2][1])
-			--To get the second ingredient of the 2nd row of the potion: minetest.chat_send_player("singleplayer", potioncraft[2][2][2])
-			--check recipe concordance
-			--firstly in the 2 rows
-			for i= 1, 2, 1 do
-				--then in the 3 items of the row
-				for j= 1, 3, 1 do
-					if potioncraft[2][i][j] ~= itemlist.items[i][j] then
-						match = false
-						break
-					else
-						match = true
-					end
-				end
-				--if no coincidence, do not search in the second row
-				if match == false then
-					break
-				end
-			end
-			--if coincidence with a potioncraft
-			if match == true then
-				output = potioncraft[1]
-				break
-			end
-		end
-		local item
-		if match == true then
-			item = ItemStack(output)
-			--minetest.chat_send_player("singleplayer", "match")
-		else
-			item = nil
-			--minetest.chat_send_player("singleplayer", "unmatched")
-		end
-		return item
 	end,
 	magic_aura = function(obj, pos, emitter, magic)
 		local minpos = pos
@@ -202,3 +148,63 @@ brewing = {
 		end 
 	end;
 }
+
+-- Function to register the potions
+brewing.register_potioncraft = function(potioncraft)
+	brewing.craftlist[#brewing.craftlist+1] = potioncraft
+end
+
+--custom function to get only array values of tables, not keys
+brewing.arrayvalues = function(arr)
+	local i = 0
+	return function() i = i + 1; return arr[i] end
+end
+
+brewing.get_craft_result = function(itemlist)
+	--recipes are 2x3
+	local output
+	local match
+	--To get the output of the first potion: minetest.chat_send_player("singleplayer", brewing.craftlist[1][1])
+	--To get the first ingredient of the first potion: minetest.chat_send_player("singleplayer", brewing.craftlist[1][2][1][1])
+	--for key, potioncraft in pairs(brewing.craftlist) do
+	for potioncraft in brewing.arrayvalues(brewing.craftlist) do
+		--To get the output of the potion: minetest.chat_send_player("singleplayer", potioncraft[1])
+		--To get the first ingredient of the 1st row of the potion: minetest.chat_send_player("singleplayer", potioncraft[2][1][1])
+		--To get the first ingredient of the 2nd row of the potion: minetest.chat_send_player("singleplayer", potioncraft[2][2][1])
+		--To get the second ingredient of the 2nd row of the potion: minetest.chat_send_player("singleplayer", potioncraft[2][2][2])
+		--check recipe concordance
+		--firstly in the 2 rows
+		for i= 1, 2, 1 do												
+			for j= 1, 3, 1 do --then in the 3 items of the row				
+				match = false
+				for h = 1, 3, 1 do					
+					--minetest.chat_send_player("singleplayer", "item="..potioncraft["recipe"][i][j])
+					--minetest.chat_send_player("singleplayer", "item2=".. itemlist.items[i][h])
+					if potioncraft["recipe"][i][j] == itemlist.items[i][h] or potioncraft["recipe"][i][j] == '' then
+						match = true
+						break					
+					end
+				end
+				if match == false then					
+					break				
+				end			
+			end			
+			if match == false then --if no coincidence, do not search in the second row
+				break
+			end
+		end
+		if match == true then --if coincidence with a potioncraft
+			output = potioncraft["output"]
+			break
+		end
+	end
+	local item
+	if match == true then
+		item = ItemStack(output)
+		--minetest.chat_send_player("singleplayer", "match")
+	else
+		item = nil
+		--minetest.chat_send_player("singleplayer", "unmatched")
+	end
+	return item
+end

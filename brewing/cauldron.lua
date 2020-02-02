@@ -139,13 +139,11 @@ local function try_to_make_potion(pos, player)
 
 		if ignitor_name== brewing.settings.ignitor["name"] and isvalidwater and flask_name== brewing.settings.flask_name and flask_count >= brewing.settings.filled_flasks then
 			--brewed, afterbrewed = minetest.get_craft_result({method = "normal", width =3, items = {ingplus1, ingplus2, ingplus3, ingminus1, ingminus2, ingminus3, ignitor, water, flask}})
-			brewed = brewing.get_craft_result{items = {{ingplus1_name, ingplus2_name, ingplus3_name}, {ingminus1_name, ingminus2_name, ingminus3_name}}}
+			brewed = brewing.get_craft_result({items = {{ingplus1_name, ingplus2_name, ingplus3_name}, {ingminus1_name, ingminus2_name, ingminus3_name}}})
 			if brewed ~= nil then
 				if inv:room_for_item("dst", brewed) then
-					--How much flask will be filled
-					brewed:set_count(brewing.settings.filled_flasks)
-					--Make the potion/s!!!
-					inv:add_item("dst", brewed)
+					brewed:set_count(brewing.settings.filled_flasks) --How much flask will be filled
+					inv:add_item("dst", brewed) --Make the potion/s!!!
 					--Decrease stacks of the ingredients
 					local ing_stack
 					local ing_list_name
