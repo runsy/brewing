@@ -146,13 +146,7 @@ brewing.engine = {
 				local pos = entity_to_freeze:get_pos()										
 				freeze_entity = minetest.add_entity(pos, "brewing:freeze_entity")		
 				--freeze_entity:set_armor_groups({immortal = 1})
-				local user_pos = user:get_pos()
-				local dest = ""
-				if (user:is_player()) then					
-					dest = "to_player"
-				else
-					dest = "object"
-				end
+				local user_pos = user:get_pos()				
 				brewing.magic_aura(user, user_pos, emitter, "freeze")
 				entity_to_freeze:set_attach(freeze_entity, "", {x=0,y=0,z=0}, {x=0,y=0,z=0})
 				brewing.magic_sound("pos", pos, "brewing_freeze")		
@@ -175,7 +169,6 @@ brewing.engine = {
 			local pos = pointed_thing:get_pos()															
 			local user_pos = user:get_pos()
 			brewing.magic_aura(user, user_pos, emitter, "freeze")
-			local dest = ""
 			if pointed_thing:is_player() then
 				brewing.magic_sound("pos", user_pos, "brewing_splash")	
 			end				
@@ -227,7 +220,7 @@ brewing.engine = {
 				-- 0.4.15+
 				glow = 14,
 			})
-			minetest.sound_play({ pos = pos, name = "brewing_thunder", gain = 10, max_hear_distance = 20 })
+			brewing.magic_sound("pos", pos, "brewing_thunder")			
 			-- damage enemy object
 			local enemy_isdead = false
 			enemy_entity:punch(enemy_entity, 1.0, {full_punch_interval = 1.0, damage_groups = {fleshy=8}}, nil)						
