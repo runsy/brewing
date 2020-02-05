@@ -300,7 +300,7 @@ brewing.engine.grant = function(time, playername, potion_name, type, flags)
 	end)
 end
 
-brewing.engine.effects.addPrefs = function(playername, speed, jump, gravity, tnt)
+brewing.engine.addPrefs = function(playername, speed, jump, gravity, tnt)
 	local prefs = brewing.engine.players[playername]
 	prefs.speed = prefs.speed + speed
 	prefs.jump = prefs.jump + jump
@@ -308,7 +308,7 @@ brewing.engine.effects.addPrefs = function(playername, speed, jump, gravity, tnt
 	prefs.tnt = prefs.tnt + tnt
 end
 
-brewing.engine.effects.refresh = function(playername)
+brewing.engine.refresh = function(playername)
 	if minetest.get_player_by_name(playername)~=nil then
 		local prefs = brewing.engine.players[playername]
 		minetest.get_player_by_name(playername):set_physics_override(prefs.speed, prefs.jump, prefs.gravity)
