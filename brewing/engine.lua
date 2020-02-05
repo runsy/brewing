@@ -272,7 +272,7 @@ brewing.engine.effects.light_strike = function(user, enemy)
 	end							
 end
 
-brewing.engine.effects.grant = function(time, playername, potion_name, type, flags)
+brewing.engine.grant = function(time, playername, potion_name, type, flags)
 	local rootdef = minetest.registered_items[potion_name]
 	if rootdef == nil then
 		return
