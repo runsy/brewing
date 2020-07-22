@@ -35,7 +35,7 @@ local function create_recipe_book_form()
 	local recipe_book_formspec =
 		"size[8,8;]"..
 		"real_coordinates[true]"..
-		"button_exit[3.5,6.5;1,1;btn_exit;"..S("Close").."]"
+		"button_exit[3.5,6.6;1,1;btn_exit;"..S("Close").."]"
 	--Create the cells
 	local cells = ""
 	local potion_idxs = ""
