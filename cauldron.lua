@@ -1,8 +1,15 @@
-local S = ...
+local S, modname = ...
+
+local function uppercase(str)
+    return (str:gsub("^%l", string.upper))
+end
 
 -- Cauldron Form
+
 local formspec =
 	"size[8,9;]"..
+	"image_button[1,0;1,1;default_book_written.png;btn_recipe_book;]"..
+	"tooltip[btn_recipe_book;Recipe Book]"..
 	"label[0,1;"..S("Recipe").."]"..
 	"list[context;ing1;1,1;1,1;]"..
 	"list[context;ing2;2,1;1,1;]"..
@@ -22,12 +29,67 @@ local formspec =
 	"list[current_name;dst;6,2;1,1;]"..
 	"list[current_player;main;0,5;8,4;]"
 
+--Recipe Book Form
+
+local function create_recipe_book_form()
+	local recipe_book_formspec =
+		"size[8,8;]"..
+		"real_coordinates[true]"..
+		"button_exit[3.5,6.5;1,1;btn_exit;"..S("Close").."]"
+	--Create the cells
+	local cells = ""
+	local potion_idxs = ""
+	local ing1_idxs = ""
+	local ing2_idxs = ""
+	local ing3_idxs = ""
+	for index, potion_craft in ipairs(brewing.craft_list) do
+		if index > 1 then
+			potion_idxs = potion_idxs ..","
+		end
+		if potion_craft["effect"] == "jumping" then
+			potion_idxs = potion_idxs .. tostring(index).."=".. "potions_jump.png"
+		else
+			potion_idxs = potion_idxs .. tostring(index).."=".."potions_"..potion_craft["effect"]..".png"
+		end
+		local ing_idxs = {}
+		for i = 1, 3, 1 do
+			local ingredient_image = minetest.registered_items[potion_craft["recipe"][i]].inventory_image
+			if ingredient_image then
+				ing_idxs[i] = tostring(index).."="..ingredient_image
+			end
+		end
+		if index > 1 then
+			cells = cells ..","
+		end
+		local type
+		if potion_craft["type"] == "add" then
+			effect_type = "+"
+		else
+			effect_type = "-"
+		end
+		cells = cells .. index .. ","..S(uppercase(potion_craft["effect"])) .. ",".. S("lvl").. " ".. effect_type .. potion_craft["level"]..','..index..','..index..','..index
+		if index > 1 then
+			ing1_idxs = ing1_idxs .. ','
+			ing2_idxs = ing2_idxs .. ','
+			ing3_idxs = ing3_idxs .. ','
+		end
+		ing1_idxs = ing1_idxs .. ing_idxs[1]
+		ing2_idxs = ing2_idxs .. ing_idxs[2]
+		ing3_idxs = ing3_idxs .. ing_idxs[3]
+	end
+	recipe_book_formspec =
+		recipe_book_formspec ..
+		"tablecolumns[image,"..potion_idxs..";text;text;image,"..ing1_idxs..";image,"..ing2_idxs..";image,"..ing3_idxs.."]"..
+		"table[0.375,0.375;7.2,6;table_potions;"..cells..";0]"
+    return recipe_book_formspec
+end
+
 --
 -- Node callback functions
 --
 
 local function can_dig(pos, player)
-	local meta = minetest.get_meta(pos);
+	local meta = minetest.get_meta(pos)
 	local inv = meta:get_inventory()
 	return inv:is_empty("water") and inv:is_empty("dst") and inv:is_empty("flask")
 end
@@ -240,7 +302,17 @@ minetest.register_node("brewing:magic_cauldron", {
 	on_metadata_inventory_put = function(pos, listname, index, stack, player)
 		try_to_make_potion(pos, player)
 	end,
+
 	allow_metadata_inventory_put = allow_metadata_inventory_put,
 	allow_metadata_inventory_move = allow_metadata_inventory_move,
 	allow_metadata_inventory_take = allow_metadata_inventory_take,
+
+	on_receive_fields = function(pos, formname, fields, sender)
+		local player_name = sender:get_player_name()
+		if fields.btn_recipe_book then
+			minetest.show_formspec(player_name, "brewing:recipe_book", create_recipe_book_form())
+		end
+	end,
 })
+
+
