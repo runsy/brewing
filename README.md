@@ -25,6 +25,10 @@ Create incredible potions for Minetest.
 
 - Recipe: The 3 ingredients to craft the potion.
 
+## Recipe Book
+
+Click on the Recipe Book icon to check the potion crafting.
+
 ## Licenses
 
 - Code: GPL v3.0
