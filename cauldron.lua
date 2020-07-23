@@ -82,7 +82,7 @@ local function create_recipe_book_form()
 		if index > 1 then
 			cells = cells ..","
 		end
-		local type
+		local effect_type
 		if potion_craft["type"] == "add" then
 			effect_type = "+"
 		else
