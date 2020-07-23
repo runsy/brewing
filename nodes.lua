@@ -5,7 +5,7 @@ minetest.register_craft({
 	output = '"brewing:magic_cauldron" 1',
 	recipe = {
 		{'default:steel_ingot', '', 'default:steel_ingot'},
-		{'default:steel_ingot', '', 'default:steel_ingot'},
+		{'default:steel_ingot', 'brewing:magic_crystal', 'default:steel_ingot'},
 		{'default:steel_ingot', 'default:steel_ingot', 'default:steel_ingot'}
 	}
 })
