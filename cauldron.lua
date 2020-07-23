@@ -9,7 +9,7 @@ end
 local formspec =
 	"size[8,9;]"..
 	"image_button[1,0;1,1;default_book_written.png;btn_recipe_book;]"..
-	"tooltip[btn_recipe_book;"..S(Recipe Book).."]"..
+	"tooltip[btn_recipe_book;"..S("Recipe Book").."]"..
 	"label[0,1;"..S("Recipe").."]"..
 	"list[context;ing1;1,1;1,1;]"..
 	"list[context;ing2;2,1;1,1;]"..
