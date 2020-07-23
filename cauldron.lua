@@ -38,18 +38,33 @@ local function create_recipe_book_form()
 		"button_exit[3.5,6.6;1,1;btn_exit;"..S("Close").."]"
 	--Create the cells
 	local cells = ""
+	local potion_name = ""
+	local potion_names = {}
 	local potion_idxs = ""
+	local potion_idx = 0
 	local ing1_idxs = ""
 	local ing2_idxs = ""
 	local ing3_idxs = ""
 	for index, potion_craft in ipairs(brewing.craft_list) do
-		if index > 1 then
-			potion_idxs = potion_idxs ..","
-		end
 		if potion_craft["effect"] == "jumping" then
-			potion_idxs = potion_idxs .. tostring(index).."=".. "potions_jump.png"
+			potion_name = "potions_jump.png"
 		else
-			potion_idxs = potion_idxs .. tostring(index).."=".."potions_"..potion_craft["effect"]..".png"
+			potion_name = "potions_"..potion_craft["effect"]..".png"
+		end
+		local potion_exists
+		for idx, value in ipairs(potion_names) do
+			if value == potion_name then
+				potion_exists = idx
+			else
+				potion_exists = nil
+			end
+		end
+		if potion_exists then
+			potion_idx = potion_exists
+		else
+			local next_idx = #potion_names+1
+			potion_names[next_idx]= potion_name
+			potion_idx = next_idx
 		end
 		local ing_idxs = {}
 		for i = 1, 3, 1 do
@@ -73,7 +88,7 @@ local function create_recipe_book_form()
 		else
 			effect_type = "-"
 		end
-		cells = cells .. index .. ","..S(uppercase(potion_craft["effect"])) .. ",".. S("lvl").. " ".. effect_type .. potion_craft["level"]..','..index..','..index..','..index
+		cells = cells .. potion_idx .. ","..S(uppercase(potion_craft["effect"])) .. ",".. S("lvl").. " ".. effect_type .. potion_craft["level"]..','..index..','..index..','..index
 		if index > 1 then
 			ing1_idxs = ing1_idxs .. ','
 			ing2_idxs = ing2_idxs .. ','
@@ -83,6 +98,13 @@ local function create_recipe_book_form()
 		ing2_idxs = ing2_idxs .. ing_idxs[2]
 		ing3_idxs = ing3_idxs .. ing_idxs[3]
 	end
+	for idx, value in ipairs(potion_names) do
+		if idx > 1 then
+			potion_idxs = potion_idxs..","
+		end
+		potion_idxs = potion_idxs .. tostring(idx).."="..value
+	end
+	--minetest.chat_send_all(potion_idxs)
 	recipe_book_formspec =
 		recipe_book_formspec ..
 		"tablecolumns[image,"..potion_idxs..";text;text;image,"..ing1_idxs..";image,"..ing2_idxs..";image,"..ing3_idxs.."]"..
