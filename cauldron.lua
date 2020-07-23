@@ -53,10 +53,16 @@ local function create_recipe_book_form()
 		end
 		local ing_idxs = {}
 		for i = 1, 3, 1 do
-			local ingredient_image = minetest.registered_items[potion_craft["recipe"][i]].inventory_image
-			if ingredient_image then
-				ing_idxs[i] = tostring(index).."="..ingredient_image
+			local ingredient_image
+			if potion_craft["recipe"][i] == "" then
+				ingredient_image = "brewing_blank_ingredient.png"
+			else
+				ingredient_image = minetest.registered_items[potion_craft["recipe"][i]].inventory_image
+				if not ingredient_image then
+					ingredient_image = "brewing_blank_ingredient.png"
+				end
 			end
+			ing_idxs[i] = tostring(index).."="..ingredient_image
 		end
 		if index > 1 then
 			cells = cells ..","
