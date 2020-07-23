@@ -15,7 +15,7 @@ brewing.register_potion_craft({
 	effect= "jumping",
 	type= "add",
 	level= 1,
-	recipe = {'flowers:mushroom_brown', '', 'brewing:gliophorus_viridis'}
+	recipe = {'flowers:mushroom_brown', 'flowers:mushroom_red', 'brewing:gliophorus_viridis'}
 })
 
 brewing.register_potion_craft({
