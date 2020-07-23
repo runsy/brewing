@@ -115,7 +115,7 @@ brewing.effects.blowup = function(sname, name, fname, time, sdata, flags)
 end
 
 brewing.effects.set_invisibility = function(player) -- hide player and name tag
-	prop = {
+	local prop = {
 		visual_size = {x = 0, y = 0},
 	}
 	player:set_nametag_attributes({
@@ -125,7 +125,7 @@ brewing.effects.set_invisibility = function(player) -- hide player and name tag
 end
 
 brewing.effects.set_visibility = function(player) -- show player and tag
-	prop = {
+	local prop = {
 		visual_size = {x = 1, y = 1},
 	}
 	player:set_nametag_attributes({

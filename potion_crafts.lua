@@ -1,5 +1,3 @@
-local modpath, S = ...
-
 --Air
 
 brewing.register_potion_craft({

@@ -1,4 +1,4 @@
-local S, modname = ...
+local S = ...
 
 local function uppercase(str)
     return (str:gsub("^%l", string.upper))
@@ -241,7 +241,7 @@ local function try_to_make_potion(pos, player)
 					for key, ing in pairs(ing_list) do
 						ing_list_name= ing[1]
 						ing_stack = ing[2]
-						howmuch = ing[4]
+						local howmuch = ing[4]
 						decrease_stacks(pos, ing_list_name, ing_stack, howmuch)
 					end
 					--replace the water bucket-->
