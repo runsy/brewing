@@ -13,7 +13,7 @@ brewing.register_potion = function(sname, name, fname, time, def)
 				tps_sign= "-"
 			end
 			local item_def = {
-				description = name.." "..S("Potion").." ("..S("lvl")..":".." "..tps_sign..sdata.type..")",
+				description = S("@1 Potion", name) .. " ("..S("lvl")..":".." "..tps_sign..sdata.type..")",
 				inventory_image = "potions_bottle.png^potions_"..(def.texture or sname)..".png^potions_"..tps[t]..sdata.type..".png",
 				drawtype = "plantlike",
 				paramtype = "light",

@@ -22,11 +22,10 @@ Orange Mycena=Orange Mycena
 Pluteus Chrysophaeus=Pluteus Chrysophaeus
 potion.=.
 potion have worn off.=han desaparecido.
-Potion=Poción
+@1 Potion=Poción @1
 Recipe=Receta
 Recipe Book=Libro de recetas
 Speed=Velocidad
 The effects of the=Los efectos de la poción
 type=tipo
 You are under the effects of the=Estás bajos los efectos de la poción
-
