@@ -11,13 +11,13 @@ brewing.craft_list = {} --for potion crafts
 brewing.effects = {} --for the player effects
 brewing.players = {} --for the players
 
-assert(loadfile(modpath.. "/settings.lua"))(S, modpath)
+assert(loadfile(modpath.. "/settings.lua"))(modpath)
 assert(loadfile(modpath.. "/api.lua"))(S, modname)
 assert(loadfile(modpath.. "/effects.lua"))(S)
 assert(loadfile(modpath.. "/potions.lua"))(S)
 assert(loadfile(modpath.. "/potion_crafts.lua"))()
 assert(loadfile(modpath.. "/cauldron.lua"))(S)
 assert(loadfile(modpath.. "/nodes.lua"))(S)
-assert(loadfile(modpath.. "/player.lua"))(S)
+assert(loadfile(modpath.. "/player.lua"))()
 assert(loadfile(modpath.. "/sound.lua"))()
 assert(loadfile(modpath.. "/mushroom.lua"))(S)

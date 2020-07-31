@@ -29,14 +29,14 @@ brewing.register_potion = function(sname, name, fname, time, def)
 			if t == 2 then
 				flags.inv = true
 			end
-			for name, val in pairs(brewing.effects[def.effect](sname, name, fname, time, sdata, flags)) do
-				item_def[name] = val
+			for key, val in pairs(brewing.effects[def.effect](sname, name, fname, time, sdata, flags)) do
+				item_def[key] = val
 			end
-			for name, val in pairs(sdata.set) do
-				item_def[name] = val
+			for key, val in pairs(sdata.set) do
+				item_def[key] = val
 			end
-			for name, val in pairs(sdata.effects) do
-				item_def.potions[name] = val
+			for key, val in pairs(sdata.effects) do
+				item_def.potions[key] = val
 			end
 			minetest.register_node(fname.."_"..tps[t]..sdata.type, item_def)
 			--potions.register_liquid(i..tps[t]..sname, name.." ("..tps[t].." "..i..")", item_def.on_use)

@@ -37,8 +37,8 @@ minetest.register_ore({
 	clust_scarcity = 10*10*10,
 	clust_num_ores = 5,
 	clust_size = 5,
-	y_min = -512,
 	y_max = -256,
+	y_min = -512,
 })
 
 -- Magic Gem

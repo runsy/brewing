@@ -1,5 +1,7 @@
 local S = ...
 
+local mg_name = minetest.get_mapgen_setting("mg_name")
+
 -- Orange Mycena
 
 if mg_name ~= "v6" and mg_name ~= "singlenode" then

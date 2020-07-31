@@ -1,5 +1,3 @@
-local S = ...
-
 minetest.register_on_joinplayer(function(player)
 	brewing.players[player:get_player_name()] = {
 		antigravity = 1,
