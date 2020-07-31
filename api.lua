@@ -70,20 +70,15 @@ brewing.get_craft_result = function(ingredients)
 		--firstly in the 2 rows
 		for i= 1, 3, 1 do
 			match = false
-			for j = 1, 3, 1 do
-				--minetest.chat_send_player("singleplayer", "item="..potion_craft["recipe"][i])
-				--minetest.chat_send_player("singleplayer", "item2=".. ingredients[j])
-				if (potion_craft["recipe"][i] == ingredients[j]) or (potion_craft["recipe"][i] == '') then
-					match = true
-					break
-				end
+			if (potion_craft["recipe"][i] == ingredients[i]) or (potion_craft["recipe"][i] == '') then
+				match = true
 			end
 			if not match then --if an ingredient does not match
 				break
 			end
 		end
 		if match then --if coincidence with a potion_craft
-			output = modname ..":" .. potion_craft["effect"] .. "_".. potion_craft["type"] .. potion_craft["level"]
+			output = modname ..":" .. potion_craft["effect"] .. "_".. potion_craft["type"] .. math.abs(potion_craft["level"])
 			break
 		end
 	end

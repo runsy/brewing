@@ -23,7 +23,7 @@ Create incredible potions for Minetest.
 
 - Level: Intensity of the effect (1 to 3)
 
-- Recipe: The 3 ingredients to craft the potion.
+- Recipe: The 3 ingredients to craft the potion. The recipe is SHAPED (the order matters).
 
 ## Recipe Book
 
