@@ -54,7 +54,7 @@ brewing.register_potion("antigrav", S("Anti-Gravity"), "brewing:antigravity", 30
 	}
 })
 
-brewing.register_potion("jump", S("Jumping"), "brewing:jumping", 300, {
+brewing.register_potion("jump", S("Jump"), "brewing:jump", 300, {
 	effect = "phys_override",
 	types = {
 		{

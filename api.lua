@@ -39,11 +39,6 @@ brewing.register_potion = function(sname, name, fname, time, def)
 				item_def.potions[key] = val
 			end
 			minetest.register_node(fname.."_"..tps[t]..sdata.type, item_def)
-			--potions.register_liquid(i..tps[t]..sname, name.." ("..tps[t].." "..i..")", item_def.on_use)
-			if minetest.get_modpath("throwing")~=nil then
-				brewing.register_arrow(fname.."_"..tps[t]..sdata.type, i..tps[t]..sname, name.." ("..tps[t].." "..i..")", item_def.on_use,
-						item_def.description, item_def.inventory_image)
-			end
 		end
 	end
 end

@@ -45,7 +45,7 @@ local function create_recipe_book_form()
 	local ing3_idxs = ""
 	for index, potion_craft in ipairs(brewing.craft_list) do
 		local potion_name
-		if potion_craft["effect"] == "jumping" then
+		if potion_craft["effect"] == "jump" then
 			potion_name = "potions_jump.png"
 		else
 			potion_name = "potions_"..potion_craft["effect"]..".png"

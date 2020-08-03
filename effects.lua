@@ -4,12 +4,12 @@ local S = ...
 
 brewing.effects = {}
 
-brewing.effects.phys_override = function(sname, name, fname, time, sdata, flags)
+brewing.effects.phys_override = function(effect_name, description_name, potion_name, time, sdata, flags)
 	local def = {
 		on_use = function(itemstack, user, pointed_thing)
 			brewing.make_sound("player", user, "brewing_magic_sound")
 			--brewing.magic_aura(user, user:get_pos(), "player", "default")
-			brewing.grant(time, user:get_player_name(), fname.."_"..flags.type..sdata.type, name, flags)
+			brewing.grant(time, user, effect_name, potion_name.."_"..flags.type..sdata.type, description_name, flags)
 			itemstack:take_item()
 			return itemstack
 		end,
@@ -87,7 +87,7 @@ brewing.effects.blowup = function(sname, name, fname, time, sdata, flags)
 		on_use = function(itemstack, user, pointed_thing)
 			brewing.make_sound("player", user, "brewing_magic_sound")
 			--brewing.magic_aura(user, user:get_pos(), "player", "default")
-			brewing.grant(time, user:get_player_name(), fname.."_"..flags.type..sdata.type, name, flags)
+			brewing.grant(time, user, sname, fname.."_"..flags.type..sdata.type, name, flags)
 			itemstack:take_item()
 			return itemstack
 		end,
@@ -134,7 +134,7 @@ brewing.effects.set_visibility = function(player) -- show player and tag
 	player:set_properties(prop)
 end
 
-brewing.grant = function(time, playername, potion_name, type, flags)
+brewing.grant = function(time, player, effect_name, potion_name, description_name, flags)
 	local rootdef = minetest.registered_items[potion_name]
 	if rootdef == nil then
 		return
@@ -152,27 +152,13 @@ brewing.grant = function(time, playername, potion_name, type, flags)
 		def.jump = 0 - def.jump
 		def.tnt = 0 - def.tnt
 	end
-	brewing.addPrefs(playername, def.speed, def.jump, def.gravity, def.tnt)
-	brewing.refresh(playername)
-	minetest.chat_send_player(playername, S("You are under the effects of the").." "..type.." "..S("potion."))
+	local player_name = player:get_player_name()
+	playerphysics.add_physics_factor(player, effect_name, potion_name, def[effect_name])
+	minetest.chat_send_player(player_name, S("You are under the effects of the").." "..description_name.." "..S("potion."))
 	minetest.after(time, function()
-		brewing.addPrefs(playername, 0-def.speed, 0-def.jump, 0-def.gravity, 0-def.tnt)
-		brewing.refresh(playername)
-		minetest.chat_send_player(playername, S("The effects of the").." "..type.." "..S("potion have worn off."))
+		if minetest.get_player_by_name(player_name)~=nil then
+			playerphysics.remove_physics_factor(player, effect_name, potion_name)
+			minetest.chat_send_player(player_name, S("The effects of the").." "..description_name.." "..S("potion have worn off."))
+		end
 	end)
-end
-
-brewing.addPrefs = function(playername, speed, jump, gravity, tnt)
-	local prefs = brewing.players[playername]
-	prefs.speed = prefs.speed + speed
-	prefs.jump = prefs.jump + jump
-	prefs.gravity = prefs.gravity + gravity
-	prefs.tnt = prefs.tnt + tnt
-end
-
-brewing.refresh = function(playername)
-	if minetest.get_player_by_name(playername)~=nil then
-		local prefs = brewing.players[playername]
-		minetest.get_player_by_name(playername):set_physics_override(prefs.speed, prefs.jump, prefs.gravity)
-	end
 end
