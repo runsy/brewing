@@ -60,18 +60,18 @@ brewing.effects.air = function(sname, name, fname, sdata, flags)
 			local potions_e = brewing.players[user:get_player_name()]
 			potions_e.air = potions_e.air + (sdata.time or 0)
 			for i=0, (sdata.time or 0) do
-				minetest.after(i, function(user, sdata)
-					local br = user:get_breath()
+				minetest.after(i, function(v_user, v_sdata)
+					local br = v_user:get_breath()
 					if flags.inv==true then
-						br = br - (sdata.br or 3)
+						br = br - (v_sdata.br or 3)
 					else
-						br = br + (sdata.br or 3)
+						br = br + (v_sdata.br or 3)
 					end
 					br = math.min(11, br)
 					br = math.max(0, br)
-					user:set_breath(br)
-					if i==(sdata.time or 0) then
-						potions_e.air = potions_e.air - (sdata.time or 0)
+					v_user:set_breath(br)
+					if i==(v_sdata.time or 0) then
+						potions_e.air = potions_e.air - (v_sdata.time or 0)
 					end
 				end, user, sdata)
 			end

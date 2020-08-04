@@ -40,7 +40,6 @@ local function create_recipe_book_form()
 	local cells = ""
 	local potion_names = {}
 	local potion_idxs = ""
-	local potion_times = ""
 	local ing1_idxs = ""
 	local ing2_idxs = ""
 	local ing3_idxs = ""
