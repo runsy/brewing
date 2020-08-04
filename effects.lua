@@ -82,24 +82,35 @@ brewing.effects.air = function(sname, name, fname, sdata, flags)
 	return def
 end
 
-brewing.effects.set_invisibility = function(player) -- hide player and name tag
-	local prop = {
-		visual_size = {x = 0, y = 0},
+brewing.effects.invisibility = function(sname, name, fname, sdata, flags)
+	local def = {
+		on_use = function(itemstack, user, pointed_thing)
+			brewing.make_sound("player", user, "brewing_magic_sound")
+			--brewing.magic_aura(user, user:get_pos(), "player", "default")
+			user:set_nametag_attributes({
+				color = {a = 0, r = 255, g = 255, b = 255}
+			})
+			user:set_properties({
+				visual_size = {x = 0, y = 0},
+			})
+			local user_name = user:get_player_name()
+			minetest.chat_send_player(user_name, S("You are invisible thanks to a invisibility potion."))
+			minetest.after(sdata.time, function(player, player_name)
+				if minetest.get_player_by_name(player_name) then
+					player:set_nametag_attributes({
+						color = {a = 255, r = 255, g = 255, b = 255}
+					})
+					player:set_properties({
+						visual_size = {x = 1, y = 1},
+					})
+					minetest.chat_send_player(player_name, S("You are visible again."))
+				end
+			end, user, user_name)
+			itemstack:take_item()
+			return itemstack
+		end,
 	}
-	player:set_nametag_attributes({
-		color = {a = 0, r = 255, g = 255, b = 255}
-	})
-	player:set_properties(prop)
-end
-
-brewing.effects.set_visibility = function(player) -- show player and tag
-	local prop = {
-		visual_size = {x = 1, y = 1},
-	}
-	player:set_nametag_attributes({
-		color = {a = 255, r = 255, g = 255, b = 255}
-	})
-	player:set_properties(prop)
+	return def
 end
 
 brewing.grant = function(player, effect_name, potion_name, description_name, time, flags)

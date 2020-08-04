@@ -197,3 +197,30 @@ brewing.register_potion("air", S("Air"), "brewing:air", {
 		},
 	}
 })
+
+brewing.register_potion("invisibility", S("Invisibility"), "brewing:invisibility", {
+	effect = "invisibility",
+	types = {
+		{
+			type = 1,
+			set = {},
+			effects = {
+			},
+			time = 3,
+		},
+		{
+			type = 2,
+			set = {},
+			effects = {
+			},
+			time = 6,
+		},
+		{
+			type = 3,
+			set = {},
+			effects = {
+			},
+			time = 9,
+		},
+	}
+})
