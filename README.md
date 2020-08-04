@@ -18,7 +18,7 @@ Create incredible potions for Minetest.
 })
 ```
 
-- Effect: It is the effect on the player: "antigrav", "speed", "health", "ouhealth", "air", "ouair".
+- Effect: It is the effect on the player: "antigrav", "speed", "health", "ouhealth", "air", "ouair" and "invisibility".
 
 [ou= only one use]
 
@@ -32,6 +32,7 @@ Create incredible potions for Minetest.
 
 - For Jump & Speed effects= 60s (lvl1), 30s (lvl2) and 15s (lvl3).
 - For Health & Air effects= 15s (lvl1), 3s (lvl2) and 60s (lvl3).
+- For Invisibility effect= 3s (lvl1), 6s (lvl2) and 9s (lvl3).
 - Note: "One Use Health" and "One Use Air" obviously have no time.
 
 ## Recipe Book
