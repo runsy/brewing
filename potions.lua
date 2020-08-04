@@ -1,6 +1,6 @@
 local S = ...
 
-brewing.register_potion("speed", S("Speed"), "brewing:speed", 300, {
+brewing.register_potion("speed", S("Speed"), "brewing:speed", {
 	effect = "phys_override",
 	types = {
 		{
@@ -9,6 +9,7 @@ brewing.register_potion("speed", S("Speed"), "brewing:speed", 300, {
 			effects = {
 				speed = 1,
 			},
+			time = 60,
 		},
 		{
 			type = 2,
@@ -16,6 +17,7 @@ brewing.register_potion("speed", S("Speed"), "brewing:speed", 300, {
 			effects = {
 				speed = 2,
 			},
+			time = 30,
 		},
 		{
 			type = 3,
@@ -23,11 +25,12 @@ brewing.register_potion("speed", S("Speed"), "brewing:speed", 300, {
 			effects = {
 				speed = 3,
 			},
+			time = 15,
 		},
 	}
 })
 
-brewing.register_potion("antigrav", S("Anti-Gravity"), "brewing:antigravity", 300, {
+brewing.register_potion("antigrav", S("Anti-Gravity"), "brewing:antigravity", {
 	effect = "phys_override",
 	types = {
 		{
@@ -54,7 +57,7 @@ brewing.register_potion("antigrav", S("Anti-Gravity"), "brewing:antigravity", 30
 	}
 })
 
-brewing.register_potion("jump", S("Jump"), "brewing:jump", 300, {
+brewing.register_potion("jump", S("Jump"), "brewing:jump", {
 	effect = "phys_override",
 	types = {
 		{
@@ -63,6 +66,7 @@ brewing.register_potion("jump", S("Jump"), "brewing:jump", 300, {
 			effects = {
 				jump = 0.5,
 			},
+			time = 60,
 		},
 		{
 			type = 2,
@@ -70,6 +74,7 @@ brewing.register_potion("jump", S("Jump"), "brewing:jump", 300, {
 			effects = {
 				jump = 1,
 			},
+			time = 30,
 		},
 		{
 			type = 3,
@@ -77,11 +82,12 @@ brewing.register_potion("jump", S("Jump"), "brewing:jump", 300, {
 			effects = {
 				jump = 1.5,
 			},
+			time = 15,
 		},
 	}
 })
 
-brewing.register_potion("ouhealth", S("One Use Health"), "brewing:ouhealth", 300, {
+brewing.register_potion("ouhealth", S("One Use Health"), "brewing:ouhealth", {
 	effect = "fixhp",
 	types = {
 		{
@@ -108,26 +114,26 @@ brewing.register_potion("ouhealth", S("One Use Health"), "brewing:ouhealth", 300
 	}
 })
 
-brewing.register_potion("health", S("Health"), "brewing:health", 300, {
+brewing.register_potion("health", S("Health"), "brewing:health", {
 	effect = "fixhp",
 	types = {
 		{
 			type = 1,
-			time = 60,
+			time = 15,
 			set = {},
 			effects = {
 			},
 		},
 		{
 			type = 2,
-			time = 120,
+			time = 30,
 			set = {},
 			effects = {
 			},
 		},
 		{
 			type = 3,
-			time = 180,
+			time = 60,
 			set = {},
 			effects = {
 			},
@@ -135,7 +141,7 @@ brewing.register_potion("health", S("Health"), "brewing:health", 300, {
 	}
 })
 
-brewing.register_potion("ouair", S("One Use Air"), "brewing:ouair", 300, {
+brewing.register_potion("ouair", S("One Use Air"), "brewing:ouair", {
 	effect = "air",
 	types = {
 		{
@@ -162,26 +168,26 @@ brewing.register_potion("ouair", S("One Use Air"), "brewing:ouair", 300, {
 	}
 })
 
-brewing.register_potion("air", S("Air"), "brewing:air", 300, {
+brewing.register_potion("air", S("Air"), "brewing:air", {
 	effect = "air",
 	types = {
 		{
 			type = 1,
-			time = 60,
+			time = 15,
 			set = {},
 			effects = {
 			},
 		},
 		{
 			type = 2,
-			time = 120,
+			time = 30,
 			set = {},
 			effects = {
 			},
 		},
 		{
 			type = 3,
-			time = 180,
+			time = 60,
 			set = {},
 			effects = {
 			},

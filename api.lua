@@ -1,7 +1,7 @@
 local S, modname = ...
 
 -- Function to register the potions
-brewing.register_potion = function(sname, name, fname, time, def)
+brewing.register_potion = function(sname, name, fname, def)
 	local tps = {"add", "sub"}
 	for t=1, #tps do
 		for i=1, #def.types do
@@ -29,12 +29,13 @@ brewing.register_potion = function(sname, name, fname, time, def)
 			if t == 2 then
 				flags.inv = true
 			end
-			for key, val in pairs(brewing.effects[def.effect](sname, name, fname, time, sdata, flags)) do
+			for key, val in pairs(brewing.effects[def.effect](sname, name, fname, sdata, flags)) do
 				item_def[key] = val
 			end
 			for key, val in pairs(sdata.set) do
 				item_def[key] = val
 			end
+			item_def["time"] = sdata.time
 			for key, val in pairs(sdata.effects) do
 				item_def.potions[key] = val
 			end

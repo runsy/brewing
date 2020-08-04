@@ -4,12 +4,12 @@ local S = ...
 
 brewing.effects = {}
 
-brewing.effects.phys_override = function(effect_name, description_name, potion_name, time, sdata, flags)
+brewing.effects.phys_override = function(effect_name, description_name, potion_name, sdata, flags)
 	local def = {
 		on_use = function(itemstack, user, pointed_thing)
 			brewing.make_sound("player", user, "brewing_magic_sound")
 			--brewing.magic_aura(user, user:get_pos(), "player", "default")
-			brewing.grant(time, user, effect_name, potion_name.."_"..flags.type..sdata.type, description_name, flags)
+			brewing.grant(user, effect_name, potion_name.."_"..flags.type..sdata.type, description_name, sdata.time or 0, flags)
 			itemstack:take_item()
 			return itemstack
 		end,
@@ -24,7 +24,7 @@ brewing.effects.phys_override = function(effect_name, description_name, potion_n
 	return def
 end
 
-brewing.effects.fixhp = function(sname, name, fname, time, sdata, flags)
+brewing.effects.fixhp = function(sname, name, fname, sdata, flags)
 	local def = {
 		on_use = function(itemstack, user, pointed_thing)
 			brewing.make_sound("player", user, "brewing_magic_sound")
@@ -52,7 +52,7 @@ brewing.effects.fixhp = function(sname, name, fname, time, sdata, flags)
 	return def
 end
 
-brewing.effects.air = function(sname, name, fname, time, sdata, flags)
+brewing.effects.air = function(sname, name, fname, sdata, flags)
 	local def = {
 		on_use = function(itemstack, user, pointed_thing)
 			brewing.make_sound("player", user, "brewing_magic_sound")
@@ -82,38 +82,6 @@ brewing.effects.air = function(sname, name, fname, time, sdata, flags)
 	return def
 end
 
-brewing.effects.blowup = function(sname, name, fname, time, sdata, flags)
-	local def = {
-		on_use = function(itemstack, user, pointed_thing)
-			brewing.make_sound("player", user, "brewing_magic_sound")
-			--brewing.magic_aura(user, user:get_pos(), "player", "default")
-			brewing.grant(time, user, sname, fname.."_"..flags.type..sdata.type, name, flags)
-			itemstack:take_item()
-			return itemstack
-		end,
-		potions = {
-			speed = 0,
-			jump = 0,
-			gravity = 0,
-			tnt = 0,
-		},
-	}
-	def.mobs = {
-		on_near = function(itemstack, user, pointed_thing)
-			local str = user:get_luaentity().brewing.exploding
-			if flags.inv==true then
-				str = math.max(0, str - sdata.power)
-			else
-				str = math.min(str + sdata.power, 250)
-			end
-			user:get_luaentity().brewing.exploding = str
-			itemstack:take_item()
-			return itemstack
-		end,
-	}
-	return def
-end
-
 brewing.effects.set_invisibility = function(player) -- hide player and name tag
 	local prop = {
 		visual_size = {x = 0, y = 0},
@@ -134,8 +102,9 @@ brewing.effects.set_visibility = function(player) -- show player and tag
 	player:set_properties(prop)
 end
 
-brewing.grant = function(time, player, effect_name, potion_name, description_name, flags)
+brewing.grant = function(player, effect_name, potion_name, description_name, time, flags)
 	local rootdef = minetest.registered_items[potion_name]
+	--minetest.chat_send_all(potion_name)
 	if rootdef == nil then
 		return
 	end
@@ -155,6 +124,7 @@ brewing.grant = function(time, player, effect_name, potion_name, description_nam
 	local player_name = player:get_player_name()
 	playerphysics.add_physics_factor(player, effect_name, potion_name, def[effect_name])
 	minetest.chat_send_player(player_name, S("You are under the effects of the").." "..description_name.." "..S("potion."))
+	--minetest.chat_send_all("time="..tostring(time))
 	minetest.after(time, function()
 		if minetest.get_player_by_name(player_name)~=nil then
 			playerphysics.remove_physics_factor(player, effect_name, potion_name)

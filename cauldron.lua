@@ -40,6 +40,7 @@ local function create_recipe_book_form()
 	local cells = ""
 	local potion_names = {}
 	local potion_idxs = ""
+	local potion_times = ""
 	local ing1_idxs = ""
 	local ing2_idxs = ""
 	local ing3_idxs = ""
@@ -88,7 +89,15 @@ local function create_recipe_book_form()
 		else
 			effect_type = "-"
 		end
-		cells = cells .. potion_idx .. ","..S(uppercase(potion_craft["effect"])) .. ",".. S("lvl").. " ".. effect_type .. potion_craft["level"]..','..index..','..index..','..index
+		local potion_name = "brewing:"..potion_craft["effect"].."_"..potion_craft["type"]..math.abs(potion_craft["level"])
+		--minetest.chat_send_all(potion_name)
+		local potion_time= minetest.registered_items[potion_name].time
+		if potion_time == nil then
+			potion_time = "-"
+		else
+			potion_time = potion_time.."s"
+		end
+		cells = cells .. potion_idx .. ","..S(uppercase(potion_craft["effect"])) .. ",".. S("lvl").. " ".. effect_type .. potion_craft["level"]..','..index..','..index..','..index..','..potion_time
 		if index > 1 then
 			ing1_idxs = ing1_idxs .. ','
 			ing2_idxs = ing2_idxs .. ','
@@ -105,9 +114,10 @@ local function create_recipe_book_form()
 		potion_idxs = potion_idxs .. tostring(idx).."="..value
 	end
 	--minetest.chat_send_all(potion_idxs)
+	--local def = minetest.registered_items[potion_name]
 	recipe_book_formspec =
 		recipe_book_formspec ..
-		"tablecolumns[image,"..potion_idxs..";text;text;image,"..ing1_idxs..";image,"..ing2_idxs..";image,"..ing3_idxs.."]"..
+		"tablecolumns[image,"..potion_idxs..";text;text;image,"..ing1_idxs..";image,"..ing2_idxs..";image,"..ing3_idxs..";text]"..
 		"table[0.375,0.375;7.2,6;table_potions;"..cells..";0]"
     return recipe_book_formspec
 end
