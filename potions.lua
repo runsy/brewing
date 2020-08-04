@@ -39,6 +39,7 @@ brewing.register_potion("antigrav", S("Anti-Gravity"), "brewing:antigravity", {
 			effects = {
 				gravity = -0.1,
 			},
+			time = 60,
 		},
 		{
 			type = 2,
@@ -46,6 +47,7 @@ brewing.register_potion("antigrav", S("Anti-Gravity"), "brewing:antigravity", {
 			effects = {
 				gravity = -0.2,
 			},
+			time = 30,
 		},
 		{
 			type = 3,
@@ -53,6 +55,7 @@ brewing.register_potion("antigrav", S("Anti-Gravity"), "brewing:antigravity", {
 			effects = {
 				gravity = -0.3,
 			},
+			time = 15,
 		},
 	}
 })
