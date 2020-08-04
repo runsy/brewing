@@ -11,7 +11,7 @@ Create incredible potions for Minetest.
 
 ```
  brewing.register_potion_craft({
-	effect= "jumping",
+	effect= "jumpi",
 	type= "add",
 	level= 1,
 	recipe = {'flowers:tulip', '', ''}
