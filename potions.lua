@@ -67,7 +67,7 @@ brewing.register_potion("jump", S("Jump"), "brewing:jump", {
 			type = 1,
 			set = {},
 			effects = {
-				jump = 0.5,
+				jump = 1.3,
 			},
 			time = 60,
 		},
@@ -75,7 +75,7 @@ brewing.register_potion("jump", S("Jump"), "brewing:jump", {
 			type = 2,
 			set = {},
 			effects = {
-				jump = 1,
+				jump = 1.75,
 			},
 			time = 30,
 		},
@@ -83,7 +83,7 @@ brewing.register_potion("jump", S("Jump"), "brewing:jump", {
 			type = 3,
 			set = {},
 			effects = {
-				jump = 1.5,
+				jump = 2.2,
 			},
 			time = 15,
 		},
