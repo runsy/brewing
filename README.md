@@ -2,6 +2,9 @@
 
 Create incredible potions for Minetest.
 
+**This mod requires Player Physics mod as hard dependency.**
+
+
 ## API
 
 ### brewing.register_potion_craft
@@ -24,6 +27,12 @@ Create incredible potions for Minetest.
 - Level: Intensity of the effect (1 to 3)
 
 - Recipe: The 3 ingredients to craft the potion. The recipe is SHAPED (the order matters).
+
+## Duration Time of the Effects
+
+- For Jump & Speed effects= 60s (lvl1), 30s (lvl2) and 15s (lvl3).
+- For Health & Air effects= 15s (lvl1), 3s (lvl2) and 60s (lvl3).
+- Note: "One Use Health" and "One Use Air" obviously have no time.
 
 ## Recipe Book
 
