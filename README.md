@@ -32,7 +32,7 @@ Create incredible potions for Minetest.
 ## Duration Time of the Effects
 
 - For Jump & Speed effects= 60s (lvl1), 30s (lvl2) and 15s (lvl3).
-- For Health, Air effects and Resist Fire= 15s (lvl1), 3s (lvl2) and 60s (lvl3).
+- For Health, Air and Resist Fire effects= 15s (lvl1), 3s (lvl2) and 60s (lvl3).
 - For Invisibility effect= 3s (lvl1), 6s (lvl2) and 9s (lvl3).
 - Note: "One Use Health" and "One Use Air" obviously have no time.
 
