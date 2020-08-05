@@ -113,6 +113,28 @@ brewing.effects.invisibility = function(sname, name, fname, sdata, flags)
 	return def
 end
 
+brewing.effects.resist_fire = function(sname, name, fname, sdata, flags)
+	local def = {
+		on_use = function(itemstack, user, pointed_thing)
+			brewing.make_sound("player", user, "brewing_magic_sound")
+			--brewing.magic_aura(user, user:get_pos(), "player", "default")
+			local user_name = user:get_player_name()
+			brewing.players[user_name]["resist_fire"] = true
+			user:get_meta():set_string("brewing:resist_fire", "true")
+			minetest.chat_send_player(user_name, S("You are able to resist fire thanks to a Resist Fire Potion."))
+			minetest.after(sdata.time, function(player, player_name)
+				if minetest.get_player_by_name(player_name) then
+					brewing.players[player_name]["resist_fire"] = false
+					minetest.chat_send_player(player_name, S("The effect of the Resist Potion has worn off."))
+				end
+			end, user, user_name)
+			itemstack:take_item()
+			return itemstack
+		end,
+	}
+	return def
+end
+
 brewing.grant = function(player, effect_name, potion_name, description_name, time, flags)
 	local rootdef = minetest.registered_items[potion_name]
 	--minetest.chat_send_all(potion_name)

@@ -96,7 +96,13 @@ local function create_recipe_book_form()
 		else
 			potion_time = potion_time.."s"
 		end
-		cells = cells .. potion_idx .. ","..S(uppercase(potion_craft["effect"])) .. ",".. S("lvl").. " ".. effect_type .. potion_craft["level"]..','..index..','..index..','..index..','..potion_time
+		local potion_craft_description
+		if potion_craft["description"] then
+			potion_craft_description = S(potion_craft["description"])
+		else
+			potion_craft_description = S(uppercase(potion_craft["effect"]))
+		end
+		cells = cells .. potion_idx .. ",".. potion_craft_description.. ",".. S("lvl").. " ".. effect_type .. potion_craft["level"]..','..index..','..index..','..index..','..potion_time
 		if index > 1 then
 			ing1_idxs = ing1_idxs .. ','
 			ing2_idxs = ing2_idxs .. ','

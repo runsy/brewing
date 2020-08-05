@@ -206,21 +206,48 @@ brewing.register_potion("invisibility", S("Invisibility"), "brewing:invisibility
 			set = {},
 			effects = {
 			},
-			time = 3,
+			time = 15,
 		},
 		{
 			type = 2,
 			set = {},
 			effects = {
 			},
-			time = 6,
+			time = 30,
 		},
 		{
 			type = 3,
 			set = {},
 			effects = {
 			},
-			time = 9,
+			time = 60,
+		},
+	}
+})
+
+brewing.register_potion("resist_fire", S("Resist Fire"), "brewing:resist_fire", {
+	effect = "resist_fire",
+	types = {
+		{
+			type = 1,
+			set = {},
+			effects = {
+			},
+			time = 15,
+		},
+		{
+			type = 2,
+			set = {},
+			effects = {
+			},
+			time = 30,
+		},
+		{
+			type = 3,
+			set = {},
+			effects = {
+			},
+			time = 60,
 		},
 	}
 })

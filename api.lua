@@ -47,7 +47,7 @@ end
 -- Function to register the potion crafts
 
 brewing.register_potion_craft = function(def)
-	brewing.craft_list[#brewing.craft_list+1] = {["effect"] = def.effect, ["type"] = def.type, ["level"] = def.level, ["recipe"] = def.recipe}
+	brewing.craft_list[#brewing.craft_list+1] = {["effect"] = def.effect, ["description"] = def.description, ["type"] = def.type, ["level"] = def.level, ["recipe"] = def.recipe}
 end
 
 brewing.get_craft_result = function(ingredients)

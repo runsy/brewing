@@ -63,3 +63,13 @@ brewing.register_potion_craft({
 	level= 2,
 	recipe = {'brewing:leaiana_mycena', 'brewing:green_hygrocybe', 'brewing:green_hygrocybe'}
 })
+
+--Invisibility
+
+brewing.register_potion_craft({
+	effect= "resist_fire",
+	description= "Resist Fire",
+	type= "add",
+	level= 2,
+	recipe = {'brewing:leaiana_mycena', 'brewing:cortinarius_violaceus', 'brewing:green_hygrocybe'}
+})
